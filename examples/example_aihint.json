@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "type": "global",
+  "target": "https://example.com",
+  "issuer": "https://trust.aihint.org",
+  "score": 0.92,
+  "method": "aihint-core-v1",
+  "issued_at": "2025-07-06 19:51:27.729755+00:00",
+  "expires_at": "2026-07-06 19:51:27.729595+00:00",
+  "comment": "Example AIHint for demonstration purposes",
+  "signature": "bakrrPQAwhfgqBJWDu8mmt7b5AHziCuhtqBih73lxd6teq2Q1epU0H6yE7ww1U42l69RbyFIN71dChCUszQ4zgtej09Tk+OOXf6Tyc09rCRitamkePTM7bWYsMH67Jw2rsEEcMDK4UnCUq0mb0V95ngH5gsnh8AiNkPLMjmFb6h+b2QtPqQqV+v/gEWdXbQlkUaYtZQAMQNwMWDV5W/KDnzKShoHS+OYGDhzSVWybGeTI7Xd24YbJ3VvScJKx+sUwN0+xdnRuss3YFbki+uGWCAWCk8Yy1L6zDeBa7TBsAt777WlFjF854HCgJ7D6IbhhUqT0XF7fBLgb0fIcP16HQ==",
+  "public_key_url": "https://trust.aihint.org/pubkey.pem"
+}

@@ -1,0 +1,189 @@
+# AIHint Standard
+
+**AIHint** is an open standard to expose signed, verifiable metadata for websites, intended to be read by AI systems, LLMs, and intelligent agents.
+
+## Purpose
+
+Allow any AI system to:
+- Discover a well-known, machine-readable JSON file on a website
+- Verify its cryptographic signature
+- Understand the site's declared trust score and metadata
+
+## Quick Start
+
+### Installation
+
+```bash
+# Install from source
+git clone https://github.com/aihint/aihint-standard.git
+cd aihint-standard
+pip install -e .
+
+# Or install dependencies directly
+pip install -r requirements.txt
+```
+
+### Create Your First AIHint
+
+```bash
+# Create a signed AIHint metadata file
+aihint create \
+  --target "https://example.com" \
+  --issuer "https://trust.aihint.org" \
+  --score 0.92 \
+  --method "aihint-core-v1" \
+  --public-key-url "https://trust.aihint.org/pubkey.pem" \
+  --private-key "private_key.pem" \
+  --output "aihint.json"
+```
+
+### Validate and Verify
+
+```bash
+# Validate an AIHint file
+aihint validate aihint.json
+
+# Verify the signature
+aihint verify aihint.json
+
+# Get detailed information
+aihint info aihint.json
+```
+
+## Python API
+
+```python
+from aihint import AIHint
+from datetime import datetime, timezone, timedelta
+
+# Create AIHint instance
+aihint = AIHint()
+
+# Create a new hint
+expires_at = datetime.now(timezone.utc) + timedelta(days=365)
+hint = aihint.create_global_hint(
+    target="https://example.com",
+    issuer="https://trust.aihint.org",
+    score=0.92,
+    method="aihint-core-v1",
+    public_key_url="https://trust.aihint.org/pubkey.pem",
+    expires_at=expires_at,
+    comment="My website trust metadata"
+)
+
+# Sign the hint
+signed_hint = aihint.sign_hint(hint, "private_key.pem")
+
+# Save to file
+aihint.save_hint(signed_hint, "aihint.json")
+
+# Validate and verify
+print(aihint.validate_hint(signed_hint))  # True
+print(aihint.verify_hint(signed_hint))    # True
+```
+
+## File Location
+
+AIHint files should be placed at:
+```
+https://example.com/.well-known/aihint.json
+```
+
+## Documentation
+
+- **[Implementation Guide](docs/IMPLEMENTATION_GUIDE.md)** - Step-by-step integration guide
+- **[API Reference](docs/API_REFERENCE.md)** - Complete API documentation
+- **[Security Considerations](docs/SECURITY_CONSIDERATIONS.md)** - Security best practices
+- **[Signature Algorithm](docs/SIGNATURES.md)** - Technical details on signing
+- **[FAQ](docs/FAQ.md)** - Frequently asked questions
+- **[Security Policy](SECURITY.md)** - Vulnerability reporting
+
+## Structure
+
+- `specs/` – Specifications of the AIHint format
+- `schema/` – JSON Schema for validation
+- `examples/` – Sample valid AIHint files
+- `aihint/` – Python implementation library
+- `tests/` – Test suite
+- `tools/` – Command-line tools
+- `docs/` – Documentation
+
+## Development
+
+### Running Tests
+
+```bash
+# Install test dependencies
+pip install pytest
+
+# Run tests
+pytest tests/
+
+# Run with coverage
+pytest --cov=aihint tests/
+```
+
+### Running Examples
+
+```bash
+# Create example AIHint with generated keys
+python examples/create_hint.py
+```
+
+### Building Documentation
+
+```bash
+# Install development dependencies
+pip install -r requirements.txt
+
+# Run linting
+flake8 aihint/
+
+# Run type checking
+mypy aihint/
+```
+
+## CLI Commands
+
+### `aihint create`
+Create a new AIHint metadata file.
+
+**Options:**
+- `--target` - Target domain URL (required)
+- `--issuer` - Issuing authority URL (required)
+- `--score` - Trust score 0.0-1.0 (required)
+- `--method` - Scoring method used (required)
+- `--public-key-url` - Public key URL (required)
+- `--expires-in` - Expiration in days (default: 365)
+- `--comment` - Optional comment
+- `--output` - Output file path
+- `--private-key` - Private key file for signing
+- `--version` - AIHint version (default: 0.1)
+
+### `aihint validate`
+Validate an AIHint metadata file.
+
+### `aihint verify`
+Verify an AIHint metadata file signature.
+
+### `aihint info`
+Display information about an AIHint metadata file.
+
+### `aihint sign`
+Sign an existing AIHint metadata file.
+
+## Security Considerations
+
+- **Private Keys**: Keep your private keys secure and never share them
+- **Key Rotation**: Regularly rotate your signing keys
+- **Expiration**: Set appropriate expiration dates for your hints
+- **HTTPS**: Always serve AIHint files over HTTPS
+- **Validation**: Always validate hints before using them
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+MIT

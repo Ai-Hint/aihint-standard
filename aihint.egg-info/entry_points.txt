@@ -1,0 +1,2 @@
+[console_scripts]
+aihint = aihint.cli:cli

@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "type": "global",
+  "target": "https://example.com",
+  "issuer": "https://trust.aihint.org",
+  "score": 0.92,
+  "method": "aihint-core-v1",
+  "issued_at": "2025-07-06T12:00:00Z",
+  "expires_at": "2026-07-06T00:00:00Z",
+  "comment": "Example global hint for example.com",
+  "signature": "base64-signature-here",
+  "public_key_url": "https://trust.aihint.org/pubkey.pem"
+}

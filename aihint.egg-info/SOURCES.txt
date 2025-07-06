@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+aihint/__init__.py
+aihint/cli.py
+aihint/core.py
+aihint/models.py
+aihint.egg-info/PKG-INFO
+aihint.egg-info/SOURCES.txt
+aihint.egg-info/dependency_links.txt
+aihint.egg-info/entry_points.txt
+aihint.egg-info/requires.txt
+aihint.egg-info/top_level.txt
+tests/__init__.py
+tests/test_core.py

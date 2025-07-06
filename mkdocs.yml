@@ -1,0 +1,93 @@
+site_name: AIHint Standard
+site_description: An open standard for signed, verifiable metadata for websites
+site_author: AIHint Contributors
+site_url: https://aihint.github.io/aihint-standard/
+
+repo_name: aihint/aihint-standard
+repo_url: https://github.com/aihint/aihint-standard
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-diffuse
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-diffuse
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: getting-started/quick-start.md
+    - Installation: getting-started/installation.md
+  - User Guide:
+    - Implementation Guide: user-guide/implementation-guide.md
+    - CLI Reference: user-guide/cli-reference.md
+    - Python API: user-guide/python-api.md
+  - Technical Reference:
+    - Security Considerations: technical/security-considerations.md
+    - Signature Algorithm: technical/signatures.md
+    - FAQ: technical/faq.md
+  - Contributing:
+    - Contributing Guide: contributing/contributing.md
+    - Code of Conduct: contributing/code-of-conduct.md
+    - Security Policy: contributing/security.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+      title: On this page 
