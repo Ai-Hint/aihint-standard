@@ -3,27 +3,25 @@ site_description: An open standard for signed, verifiable metadata for websites
 site_author: AIHint Contributors
 site_url: https://aihint.github.io/aihint-standard/
 
-repo_name: aihint/aihint-standard
-repo_url: https://github.com/aihint/aihint-standard
+repo_name: Ai-Hint/aihint-standard
+repo_url: https://github.com/Ai-Hint/aihint-standard
 edit_uri: edit/main/docs/
+
+use_directory_urls: false
+
+extra_javascript:
+  - extra.js
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
-    - media: "(prefers-color-scheme)"
-      scheme: default
+    - scheme: default
       primary: indigo
       accent: indigo
-      toggle:
-        icon: material/toggle-diffuse
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: indigo
       accent: indigo
-      toggle:
-        icon: material/toggle-diffuse
-        name: Switch to light mode
 
 plugins:
   - search

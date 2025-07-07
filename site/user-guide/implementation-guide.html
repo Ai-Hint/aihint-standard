@@ -12,26 +12,28 @@
         <meta name="author" content="AIHint Contributors">
       
       
-        <link rel="canonical" href="https://aihint.github.io/aihint-standard/index.html">
+        <link rel="canonical" href="https://aihint.github.io/aihint-standard/user-guide/implementation-guide.html">
       
       
+        <link rel="prev" href="../getting-started/installation.html">
       
-        <link rel="next" href="getting-started/quick-start.html">
+      
+        <link rel="next" href="cli-reference.html">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>AIHint Standard</title>
+        <title>Implementation Guide - AIHint Standard</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aihint-standard-documentation" class="md-skip">
+        <a href="#aihint-implementation-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="AIHint Standard" class="md-header__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
+    <a href="../index.html" title="AIHint Standard" class="md-header__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Implementation Guide
             
           </span>
         </div>
@@ -222,7 +224,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="AIHint Standard" class="md-nav__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
+    <a href="../index.html" title="AIHint Standard" class="md-nav__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -249,32 +251,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -285,100 +265,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-aihint" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is AIHint?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Start
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-sections" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation Sections
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      File Location
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-aihint-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example AIHint File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -428,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quick-start.html" class="md-nav__link">
+      <a href="../getting-started/quick-start.html" class="md-nav__link">
         
   
   
@@ -451,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation.html" class="md-nav__link">
+      <a href="../getting-started/installation.html" class="md-nav__link">
         
   
   
@@ -478,18 +364,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -505,7 +393,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Guide
@@ -516,10 +404,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="user-guide/implementation-guide.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Implementation Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="implementation-guide.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -530,6 +440,82 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-generate-key-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Generate Key Pair
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-aihint-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create AIHint Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-publish-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Publish Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Verification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-rotate-keys-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Rotate Keys (Recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -542,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user-guide/cli-reference.html" class="md-nav__link">
+      <a href="cli-reference.html" class="md-nav__link">
         
   
   
@@ -565,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user-guide/python-api.html" class="md-nav__link">
+      <a href="python-api.html" class="md-nav__link">
         
   
   
@@ -633,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/security-considerations.html" class="md-nav__link">
+      <a href="../technical/security-considerations.html" class="md-nav__link">
         
   
   
@@ -656,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/signatures.html" class="md-nav__link">
+      <a href="../technical/signatures.html" class="md-nav__link">
         
   
   
@@ -679,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/faq.html" class="md-nav__link">
+      <a href="../technical/faq.html" class="md-nav__link">
         
   
   
@@ -747,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/contributing.html" class="md-nav__link">
+      <a href="../contributing/contributing.html" class="md-nav__link">
         
   
   
@@ -770,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/code-of-conduct.html" class="md-nav__link">
+      <a href="../contributing/code-of-conduct.html" class="md-nav__link">
         
   
   
@@ -793,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/security.html" class="md-nav__link">
+      <a href="../contributing/security.html" class="md-nav__link">
         
   
   
@@ -845,72 +831,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-aihint" class="md-nav__link">
+  <a href="#1-generate-key-pair" class="md-nav__link">
     <span class="md-ellipsis">
-      What is AIHint?
+      1. Generate Key Pair
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#2-create-aihint-metadata" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick Start
+      2. Create AIHint Metadata
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#3-publish-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      3. Publish Files
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-sections" class="md-nav__link">
+  <a href="#4-verification" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation Sections
+      4. Verification
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-location" class="md-nav__link">
+  <a href="#5-rotate-keys-recommended" class="md-nav__link">
     <span class="md-ellipsis">
-      File Location
+      5. Rotate Keys (Recommended)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-aihint-file" class="md-nav__link">
+  <a href="#6-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Example AIHint File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
+      6. Example
     </span>
   </a>
   
@@ -935,66 +903,41 @@
   
 
 
-<h1 id="aihint-standard-documentation">AIHint Standard Documentation<a class="headerlink" href="#aihint-standard-documentation" title="Permanent link">&para;</a></h1>
-<p>Welcome to the AIHint Standard documentation! AIHint is an open standard for exposing signed, verifiable metadata for websites, intended to be read by AI systems, LLMs, and intelligent agents.</p>
-<h2 id="what-is-aihint">What is AIHint?<a class="headerlink" href="#what-is-aihint" title="Permanent link">&para;</a></h2>
-<p>AIHint allows any AI system to:
-- Discover a well-known, machine-readable JSON file on a website
-- Verify its cryptographic signature
-- Understand the site's declared trust score and metadata</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install AIHint</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>aihint
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Create your first AIHint</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>aihint<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>--target<span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>--issuer<span class="w"> </span><span class="s2">&quot;https://trust.aihint.org&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>--score<span class="w"> </span><span class="m">0</span>.92<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span>--method<span class="w"> </span><span class="s2">&quot;aihint-core-v1&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span>--public-key-url<span class="w"> </span><span class="s2">&quot;https://trust.aihint.org/pubkey.pem&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span>--private-key<span class="w"> </span><span class="s2">&quot;private_key.pem&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span>--output<span class="w"> </span><span class="s2">&quot;aihint.json&quot;</span>
+<h1 id="aihint-implementation-guide">AIHint Implementation Guide<a class="headerlink" href="#aihint-implementation-guide" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through integrating AIHint into your website or service.</p>
+<h2 id="1-generate-key-pair">1. Generate Key Pair<a class="headerlink" href="#1-generate-key-pair" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>openssl rsa -pubout -in private_key.pem -out public_key.pem
 </span></code></pre></div>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Cryptographic Signatures</strong>: RSA 2048-bit with SHA-256</li>
-<li><strong>Trust Scoring</strong>: 0.0-1.0 scale with customizable methods</li>
-<li><strong>Expiration</strong>: Built-in expiration dates for security</li>
-<li><strong>Validation</strong>: Comprehensive schema and signature validation</li>
-<li><strong>CLI Tools</strong>: Easy-to-use command-line interface</li>
-<li><strong>Python API</strong>: Full programmatic access</li>
-</ul>
-<h2 id="documentation-sections">Documentation Sections<a class="headerlink" href="#documentation-sections" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="getting-started/quick-start.html">Getting Started</a></strong> - Quick start guide and installation</li>
-<li><strong><a href="user-guide/implementation-guide.html">User Guide</a></strong> - Implementation guide and API reference</li>
-<li><strong><a href="technical/security-considerations.html">Technical Reference</a></strong> - Security considerations and technical details</li>
-<li><strong><a href="contributing/contributing.html">Contributing</a></strong> - How to contribute to the project</li>
-</ul>
-<h2 id="file-location">File Location<a class="headerlink" href="#file-location" title="Permanent link">&para;</a></h2>
-<p>AIHint files should be placed at:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://example.com/.well-known/aihint.json
-</span></code></pre></div></p>
-<h2 id="example-aihint-file">Example AIHint File<a class="headerlink" href="#example-aihint-file" title="Permanent link">&para;</a></h2>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://trust.aihint.org&quot;</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aihint-core-v1&quot;</span><span class="p">,</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&quot;issued_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-01T12:00:00Z&quot;</span><span class="p">,</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">&quot;expires_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-01-01T00:00:00Z&quot;</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example AIHint for demonstration&quot;</span><span class="p">,</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64-signature-here&quot;</span><span class="p">,</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nt">&quot;public_key_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://trust.aihint.org/pubkey.pem&quot;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<h2 id="2-create-aihint-metadata">2. Create AIHint Metadata<a class="headerlink" href="#2-create-aihint-metadata" title="Permanent link">&para;</a></h2>
+<p>Use the CLI or Python API:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aihint create \
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --target &quot;https://yourdomain.com&quot; \
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  --issuer &quot;https://your-issuer.com&quot; \
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  --score 0.95 \
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  --method &quot;aihint-core-v1&quot; \
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  --public-key-url &quot;https://your-issuer.com/pubkey.pem&quot; \
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  --private-key private_key.pem \
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  --output .well-known/aihint.json
 </span></code></pre></div>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
-<p>AIHint is designed with security in mind. See our <a href="technical/security-considerations.html">Security Considerations</a> for best practices and potential attack vectors.</p>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>We welcome contributions! Please see our <a href="contributing/contributing.html">Contributing Guide</a> and <a href="contributing/code-of-conduct.html">Code of Conduct</a>. </p>
+<h2 id="3-publish-files">3. Publish Files<a class="headerlink" href="#3-publish-files" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Place <code>aihint.json</code> at <code>https://yourdomain.com/.well-known/aihint.json</code></li>
+<li>Host your public key at the <code>public_key_url</code></li>
+</ul>
+<h2 id="4-verification">4. Verification<a class="headerlink" href="#4-verification" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use the CLI or Python API to verify your hint:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aihint verify .well-known/aihint.json
+</span></code></pre></div></li>
+</ul>
+<h2 id="5-rotate-keys-recommended">5. Rotate Keys (Recommended)<a class="headerlink" href="#5-rotate-keys-recommended" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Generate new keys periodically</li>
+<li>Update <code>public_key_url</code> and re-sign your hints</li>
+</ul>
+<h2 id="6-example">6. Example<a class="headerlink" href="#6-example" title="Permanent link">&para;</a></h2>
+<p>See <code>examples/create_hint.py</code> for a full workflow. </p>
 
 
 
@@ -1038,12 +981,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="extra.js"></script>
+        <script src="../extra.js"></script>
       
     
   </body>

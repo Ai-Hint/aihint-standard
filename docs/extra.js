@@ -1,17 +1,18 @@
 // Make the repository link open in a new tab
-// This is the current approach since MkDocs Material doesn't support this via config
-window.addEventListener('DOMContentLoaded', function() {
-  // Try multiple selectors for compatibility with different MkDocs Material versions
-  var repoLink = document.querySelector('a.md-header__source, a.md-source, a[href*="github.com"]');
-  if (repoLink) {
-    repoLink.setAttribute('target', '_blank');
-    repoLink.setAttribute('rel', 'noopener noreferrer');
-  }
-  
+window.addEventListener("DOMContentLoaded", function() {
+  // Find all anchor tags in the header that link to the GitHub repo (case-insensitive)
+  var githubLinks = Array.from(document.querySelectorAll("a")).filter(function(link) {
+    return /github\.com\/(aihint|Ai-Hint)\/aihint-standard/i.test(link.href);
+  });
+  githubLinks.forEach(function(link) {
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  });
+
   // Update copyright year dynamically
-  var yearSpan = document.getElementById('current-year');
+  var yearSpan = document.getElementById("current-year");
   if (yearSpan) {
     var currentYear = new Date().getFullYear();
     yearSpan.textContent = currentYear;
   }
-}); 
+});

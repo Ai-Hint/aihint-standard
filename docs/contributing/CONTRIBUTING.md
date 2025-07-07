@@ -4,7 +4,7 @@ Thank you for your interest in contributing to AIHint! This document provides gu
 
 ## Code of Conduct
 
-This project adheres to our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+This project adheres to our [Code of Conduct](code-of-conduct.md). By participating, you are expected to uphold this code.
 
 ## How Can I Contribute?
 
@@ -31,7 +31,7 @@ This project adheres to our [Code of Conduct](CODE_OF_CONDUCT.md). By participat
 
 1. **Fork and clone the repository**
    ```bash
-   git clone https://github.com/your-username/aihint-standard.git
+   git clone https://github.com/Ai-Hint/aihint-standard.git
    cd aihint-standard
    ```
 

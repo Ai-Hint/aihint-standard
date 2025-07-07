@@ -6,7 +6,7 @@ Get up and running with AIHint in minutes!
 
 ```bash
 # Install from source
-git clone https://github.com/aihint/aihint-standard.git
+git clone https://github.com/Ai-Hint/aihint-standard.git
 cd aihint-standard
 pip install -e .
 

@@ -18,7 +18,7 @@ setup(
     description="AIHint Standard Implementation - Create, validate, and verify AIHint metadata",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/aihint/aihint-standard",
+    url="https://github.com/Ai-Hint/aihint-standard",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -46,8 +46,8 @@ setup(
     },
     keywords="aihint, metadata, trust, verification, cryptography",
     project_urls={
-        "Bug Reports": "https://github.com/aihint/aihint-standard/issues",
-        "Source": "https://github.com/aihint/aihint-standard",
-        "Documentation": "https://github.com/aihint/aihint-standard#readme",
+        "Bug Reports": "https://github.com/Ai-Hint/aihint-standard/issues",
+        "Source": "https://github.com/Ai-Hint/aihint-standard",
+        "Documentation": "https://github.com/Ai-Hint/aihint-standard#readme",
     },
 ) 

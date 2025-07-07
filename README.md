@@ -15,7 +15,7 @@ Allow any AI system to:
 
 ```bash
 # Install from source
-git clone https://github.com/aihint/aihint-standard.git
+git clone https://github.com/Ai-Hint/aihint-standard.git
 cd aihint-standard
 pip install -e .
 
@@ -91,12 +91,12 @@ https://example.com/.well-known/aihint.json
 
 ## Documentation
 
-- **[Implementation Guide](docs/IMPLEMENTATION_GUIDE.md)** - Step-by-step integration guide
+- **[Implementation Guide](docs/user-guide/implementation-guide.md)** - Step-by-step integration guide
 - **[API Reference](docs/API_REFERENCE.md)** - Complete API documentation
-- **[Security Considerations](docs/SECURITY_CONSIDERATIONS.md)** - Security best practices
+- **[Security Considerations](docs/technical/security-considerations.md)** - Security best practices
 - **[Signature Algorithm](docs/SIGNATURES.md)** - Technical details on signing
 - **[FAQ](docs/FAQ.md)** - Frequently asked questions
-- **[Security Policy](SECURITY.md)** - Vulnerability reporting
+- **[Security Policy](docs/contributing/security.md)** - Vulnerability reporting
 
 ## Structure
 
@@ -182,7 +182,7 @@ Sign an existing AIHint metadata file.
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+We welcome contributions! Please see our [Contributing Guide](docs/contributing/contributing.md) and [Code of Conduct](docs/contributing/code-of-conduct.md).
 
 ## License
 
