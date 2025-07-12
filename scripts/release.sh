@@ -49,9 +49,9 @@ echo "📦 Updating Python version..."
 update_version "setup.py" "version='[^']*'" "version='$VERSION'"
 update_version "aihint/__init__.py" "__version__ = '[^']*'" "__version__ = '$VERSION'"
 
-# Update JavaScript version
+# Update JavaScript version (main package.json)
 echo "📦 Updating JavaScript version..."
-update_version "js-aihint/package.json" '"version": "[^"]*"' '"version": "'$VERSION'"'
+update_version "package.json" '"version": "[^"]*"' '"version": "'$VERSION'"'
 
 # Update PHP version
 echo "📦 Updating PHP version..."
@@ -98,7 +98,7 @@ if [[ "$DRY_RUN" == "false" ]]; then
     echo ""
     echo "📦 Package publishing:"
     echo "- Python: python setup.py sdist bdist_wheel && twine upload dist/*"
-    echo "- JavaScript: cd js-aihint && npm publish"
+    echo "- JavaScript: npm publish"
     echo "- PHP: Update Packagist (if using)"
 else
     echo "📋 Would perform the following actions:"

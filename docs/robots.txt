@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://standard.aihint.org/sitemap.xml
+Sitemap: https://standard.aihint.org/sitemap.xml.gz
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important directories
+Allow: /assets/
+Allow: /api-reference/
+Allow: /getting-started/
+Allow: /user-guide/
+Allow: /technical/
+Allow: /contributing/ 

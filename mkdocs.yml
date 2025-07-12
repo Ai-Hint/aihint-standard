@@ -1,7 +1,7 @@
 site_name: AiHint Standard
-site_description: An open standard for signed, verifiable metadata for websites
+site_description: Open standard for signed, verifiable website metadata with multi-language support (Python, JavaScript, PHP). Create trusted, cryptographically signed metadata for websites with CLI tools and comprehensive documentation.
 site_author: AiHint Contributors
-site_url: https://docs.aihint.org/
+site_url: https://standard.aihint.org/
 
 repo_name: Ai-Hint/aihint-standard
 repo_url: https://github.com/Ai-Hint/aihint-standard
@@ -27,15 +27,80 @@ theme:
     - scheme: slate
       primary: indigo
       accent: indigo
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.delay
+    - navigation.instant.loading
+    - navigation.instant.previous
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
 
 plugins:
-  - search
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/`|]+'
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
           rendering:
             show_source: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enable_git_follow: false
+  - minify:
+      minify_html: true
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Ai-Hint/aihint-standard
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/aihint
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/aihint
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/aihint
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they search for. With your consent, you're helping us to
+      make our documentation better.
+  feedback:
+    title: Was this page helpful?
+    ratings:
+      - icon: material/thumb-up
+        name: This page was helpful
+        data: 1
+      - icon: material/thumb-down
+        name: This page was not helpful
+        data: 0
 
 nav:
   - Home: index.md
