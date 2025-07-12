@@ -1,4 +1,4 @@
-# AIHint Global — Specification v0.1
+# AiHint Global — Specification v0.1
 
 The Global Hint is a JSON file placed at `.well-known/aihint.json`, allowing AI systems to obtain trusted metadata about a domain.
 
@@ -12,7 +12,7 @@ https://example.com/.well-known/aihint.json
 
 | Field            | Type    | Description |
 |------------------|---------|-------------|
-| `version`        | string  | AIHint version (e.g., `"0.1"`) |
+| `version`        | string  | AiHint version (e.g., `"0.1"`) |
 | `type`           | string  | `"global"` |
 | `target`         | string  | Target domain URL |
 | `issuer`         | string  | URL of the issuing authority |

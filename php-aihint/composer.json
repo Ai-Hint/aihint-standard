@@ -1,0 +1,19 @@
+{
+  "name": "aihint/aihint-php",
+  "description": "PHP implementation of the AiHint protocol for signed, verifiable metadata.",
+  "type": "library",
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "AIHint\\": "src/"
+    }
+  },
+  "bin": [
+    "bin/aihint"
+  ],
+  "license": "MIT"
+}

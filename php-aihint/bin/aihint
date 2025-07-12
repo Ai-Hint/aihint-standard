@@ -1,0 +1,231 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use AIHint\AIHint;
+use AIHint\KeyManager;
+
+class AIHintCLI {
+    private $keyManager;
+
+    public function __construct() {
+        $this->keyManager = new KeyManager();
+    }
+
+    public function run(array $args): void {
+        $command = $args[1] ?? 'help';
+
+        try {
+            switch ($command) {
+                case 'generate-keys':
+                    $this->generateKeys($args);
+                    break;
+                case 'create':
+                    $this->create($args);
+                    break;
+                case 'verify':
+                    $this->verify($args);
+                    break;
+                case 'validate':
+                    $this->validate($args);
+                    break;
+                case 'fetch':
+                    $this->fetch($args);
+                    break;
+                case 'info':
+                    $this->info($args);
+                    break;
+                case 'help':
+                default:
+                    $this->help();
+                    break;
+            }
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage() . "\n";
+            exit(1);
+        }
+    }
+
+    private function generateKeys(array $args): void {
+        $outputDir = $this->getOption($args, '--output-dir', './keys');
+        
+        echo "Generating RSA key pair...\n";
+        $this->keyManager->generateKeys($outputDir);
+        echo "Keys generated successfully in: $outputDir\n";
+        echo "Private key: $outputDir/private_key.pem\n";
+        echo "Public key: $outputDir/public_key.pem\n";
+    }
+
+    private function create(array $args): void {
+        $target = $this->getRequiredOption($args, '--target');
+        $issuer = $this->getRequiredOption($args, '--issuer');
+        $score = (float) $this->getRequiredOption($args, '--score');
+        $method = $this->getOption($args, '--method', 'aihint-core-v1');
+        $comment = $this->getOption($args, '--comment');
+        $expiresAt = $this->getOption($args, '--expires-at');
+        $privateKey = $this->getRequiredOption($args, '--private-key');
+        $output = $this->getRequiredOption($args, '--output');
+
+        // Validate score
+        if ($score < 0.0 || $score > 1.0) {
+            throw new Exception("Score must be between 0.0 and 1.0");
+        }
+
+        // Create AiHint
+        $data = [
+            'target' => $target,
+            'issuer' => $issuer,
+            'score' => $score,
+            'method' => $method,
+            'comment' => $comment
+        ];
+
+        if ($expiresAt) {
+            $data['expiresAt'] = new DateTime($expiresAt);
+        }
+
+        $aihint = new AIHint($data);
+        $aihint->sign($privateKey);
+        $aihint->save($output);
+
+        echo "AiHint created successfully: $output\n";
+    }
+
+    private function verify(array $args): void {
+        $file = $args[2] ?? null;
+        if (!$file) {
+            throw new Exception("Please provide a file path or URL");
+        }
+
+        $publicKey = $this->getOption($args, '--public-key');
+
+        if (filter_var($file, FILTER_VALIDATE_URL)) {
+            $aihint = AIHint::fromUrl($file);
+        } else {
+            $aihint = new AIHint();
+            $aihint->load($file);
+        }
+
+        $isValid = $aihint->verify($publicKey);
+        
+        if ($isValid) {
+            echo "✓ Signature is valid\n";
+            echo "Target: {$aihint->target}\n";
+            echo "Score: {$aihint->score}\n";
+            echo "Issuer: {$aihint->issuer}\n";
+        } else {
+            echo "✗ Signature verification failed\n";
+            exit(1);
+        }
+    }
+
+    private function validate(array $args): void {
+        $file = $args[2] ?? null;
+        if (!$file) {
+            throw new Exception("Please provide a file path");
+        }
+
+        $aihint = new AIHint();
+        $aihint->load($file);
+
+        $isValid = $aihint->validate();
+        
+        if ($isValid) {
+            echo "✓ AiHint is valid\n";
+        } else {
+            echo "✗ AiHint validation failed\n";
+            exit(1);
+        }
+    }
+
+    private function fetch(array $args): void {
+        $url = $args[2] ?? null;
+        if (!$url) {
+            throw new Exception("Please provide a URL");
+        }
+
+        $aihint = AIHint::fromUrl($url);
+        $data = $aihint->toArray();
+        
+        echo json_encode($data, JSON_PRETTY_PRINT) . "\n";
+    }
+
+    private function info(array $args): void {
+        $file = $args[2] ?? null;
+        if (!$file) {
+            throw new Exception("Please provide a file path");
+        }
+
+        $aihint = new AIHint();
+        $aihint->load($file);
+
+        echo "AiHint Information:\n";
+        echo "  Version: {$aihint->version}\n";
+        echo "  Type: {$aihint->type}\n";
+        echo "  Target: {$aihint->target}\n";
+        echo "  Issuer: {$aihint->issuer}\n";
+        echo "  Score: {$aihint->score}\n";
+        echo "  Method: {$aihint->method}\n";
+        echo "  Issued: {$aihint->issuedAt->format('Y-m-d H:i:s')}\n";
+        echo "  Expires: {$aihint->expiresAt->format('Y-m-d H:i:s')}\n";
+        
+        if ($aihint->comment) {
+            echo "  Comment: {$aihint->comment}\n";
+        }
+        
+        if ($aihint->publicKeyUrl) {
+            echo "  Public Key URL: {$aihint->publicKeyUrl}\n";
+        }
+
+        $daysLeft = $aihint->expiresAt->diff(new DateTime())->days;
+        echo "  Status: " . ($daysLeft > 0 ? "Valid ($daysLeft days left)" : "Expired") . "\n";
+    }
+
+    private function help(): void {
+        echo "AiHint PHP CLI\n\n";
+        echo "Usage: php vendor/bin/aihint <command> [options]\n\n";
+        echo "Commands:\n";
+        echo "  generate-keys --output-dir <dir>     Generate RSA key pair\n";
+        echo "  create [options]                     Create and sign AiHint\n";
+        echo "  verify <file|url> [--public-key <key>] Verify signature\n";
+        echo "  validate <file>                      Validate AiHint structure\n";
+        echo "  fetch <url>                          Fetch AiHint from URL\n";
+        echo "  info <file>                          Show AiHint information\n";
+        echo "  help                                 Show this help\n\n";
+        echo "Create options:\n";
+        echo "  --target <url>                       Target URL (required)\n";
+        echo "  --issuer <url>                       Issuer URL (required)\n";
+        echo "  --score <float>                      Trust score 0.0-1.0 (required)\n";
+        echo "  --method <string>                    Scoring method (default: aihint-core-v1)\n";
+        echo "  --comment <string>                   Optional comment\n";
+        echo "  --expires-at <date>                  Expiration date (ISO format)\n";
+        echo "  --private-key <file>                 Private key file (required)\n";
+        echo "  --output <file>                      Output file (required)\n\n";
+        echo "Environment variables:\n";
+        echo "  AIHINT_TIMEOUT                       HTTP timeout for remote operations\n";
+        echo "  AIHINT_DEFAULT_METHOD                Default scoring method\n";
+        echo "  AIHINT_DEFAULT_EXPIRY_DAYS          Default expiration period\n";
+    }
+
+    private function getOption(array $args, string $option, $default = null) {
+        for ($i = 0; $i < count($args) - 1; $i++) {
+            if ($args[$i] === $option) {
+                return $args[$i + 1];
+            }
+        }
+        return $default;
+    }
+
+    private function getRequiredOption(array $args, string $option): string {
+        $value = $this->getOption($args, $option);
+        if ($value === null) {
+            throw new Exception("Required option missing: $option");
+        }
+        return $value;
+    }
+}
+
+// Run CLI
+$cli = new AIHintCLI();
+$cli->run($argv); 

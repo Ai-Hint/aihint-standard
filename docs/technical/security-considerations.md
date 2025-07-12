@@ -1,6 +1,6 @@
-# AIHint Security Considerations
+# AiHint Security Considerations
 
-AIHint is designed to provide verifiable, tamper-evident metadata for websites. Security is critical to its trustworthiness.
+AiHint is designed to provide verifiable, tamper-evident metadata for websites. Security is critical to its trustworthiness.
 
 ## Signature Algorithms
 - **Default:** RSA 2048-bit with SHA-256

@@ -1,7 +1,7 @@
-site_name: AIHint Standard
+site_name: AiHint Standard
 site_description: An open standard for signed, verifiable metadata for websites
-site_author: AIHint Contributors
-site_url: https://aihint.github.io/aihint-standard/
+site_author: AiHint Contributors
+site_url: https://docs.aihint.org/
 
 repo_name: Ai-Hint/aihint-standard
 repo_url: https://github.com/Ai-Hint/aihint-standard
@@ -12,9 +12,14 @@ use_directory_urls: false
 extra_javascript:
   - extra.js
 
+extra_css:
+  - assets/stylesheets/extra.css
+
 theme:
   name: material
   custom_dir: overrides
+  logo: assets/images/aihint-logo.png
+  favicon: assets/images/aihint-logo.png
   palette:
     - scheme: default
       primary: indigo
@@ -35,20 +40,35 @@ plugins:
 nav:
   - Home: index.md
   - Getting Started:
-    - Quick Start: getting-started/quick-start.md
-    - Installation: getting-started/installation.md
+      - Choose Your Implementation: getting-started/choose-implementation.md
+      - Quick Start: getting-started/quick-start.md
+      - Installation: getting-started/installation.md
+      - Key Concepts: getting-started/key-concepts.md
   - User Guide:
-    - Implementation Guide: user-guide/implementation-guide.md
-    - CLI Reference: user-guide/cli-reference.md
-    - Python API: user-guide/python-api.md
+      - Implementation Guide: user-guide/implementation-guide.md
+      - Key Management: user-guide/key-management.md
+      - Example Workflows: user-guide/example-workflows.md
+  - API Reference:
+      - Python API: api-reference/python-api.md
+      - JavaScript API: api-reference/javascript-api.md
+      - PHP API: api-reference/php-api.md
+      - CLI Reference: api-reference/cli-reference.md
+  - Issuer Service:
+      - Overview: issuer-service/overview.md
+      - Become an Issuer: issuer-service/become-issuer.md
+      - Billing & Plans: issuer-service/billing.md
+      - Issuer API: issuer-service/api.md
   - Technical Reference:
-    - Security Considerations: technical/security-considerations.md
-    - Signature Algorithm: technical/signatures.md
-    - FAQ: technical/faq.md
+      - Protocol & Data Model: technical/protocol.md
+      - Signature Algorithm: technical/signatures.md
+      - Security Considerations: technical/security-considerations.md
+      - Trust Model: technical/trust-model.md
+  - FAQ: technical/faq.md
   - Contributing:
-    - Contributing Guide: contributing/contributing.md
-    - Code of Conduct: contributing/code-of-conduct.md
-    - Security Policy: contributing/security.md
+      - How to Contribute: contributing/contributing.md
+      - Code of Conduct: contributing/code-of-conduct.md
+      - Security Policy: contributing/security.md
+  - Changelog: CHANGELOG.md
 
 markdown_extensions:
   - admonition

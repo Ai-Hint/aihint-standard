@@ -1,0 +1,37 @@
+{
+  "name": "aihint-standard",
+  "version": "1.0.0",
+  "description": "> **⚠️ Important Notice: Open Source vs. Official Issuer** > > This open source AiHint project provides the protocol, libraries, and tools for learning, development, testing, and self-signed metadata. > > **Self-signed AiHint metadata is not globally trusted by default.** > > For production, public, or commercial use—where global trust and official verification are required—please use the AiHint Official Issuer Service (coming soon), which provides domain validation, billing, and a globally recognized trust authority. > > **Use this open source project for:** > - Experimentation and learning > - Local development and testing > - Self-hosted or private use > > **Use the Official Issuer Service for:** > - Production and public-facing websites > - Globally trusted AiHint metadata > - Verified issuer status and support",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Ai-Hint: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@github.com/Ai-Hint/aihint-standard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ai-Hint/aihint-standard/issues"
+  },
+  "homepage": "https://github.com/Ai-Hint/aihint-standard#readme",
+  "dependencies": {
+    "@types/node": "^24.0.12",
+    "ajv": "^8.17.1",
+    "commander": "^14.0.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.0",
+    "@types/node-fetch": "^2.6.12",
+    "typescript": "^5.8.3"
+  }
+}

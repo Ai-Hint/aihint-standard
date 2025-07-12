@@ -67,7 +67,7 @@ def create(target, issuer, score, method, public_key_url, expires_in, comment, o
             aihint.save_hint(hint, output)
             click.echo(f"✓ Hint saved to {output}")
         else:
-            click.echo(json.dumps(hint.dict(), indent=2, default=str))
+            click.echo(json.dumps(hint.model_dump(), indent=2, default=str))
             
     except AIHintError as e:
         raise click.ClickException(str(e))

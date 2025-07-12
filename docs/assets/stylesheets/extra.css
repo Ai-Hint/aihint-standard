@@ -1,0 +1,29 @@
+/* Style the 'Get my AiHint' nav link as a button */
+.md-nav__link[href="https://aihint.org/get-started"] {
+  display: inline-block;
+  background: #3f51b5;
+  color: #fff !important;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(63,81,181,0.08);
+  margin: 1em auto 1em auto;
+  text-align: center;
+}
+
+/* Style the 'Back to Main Site' link for consistency */
+.md-nav__link[href="https://aihint.org"] {
+  margin-top: 2em;
+  color: #3f51b5 !important;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+/* Make the header logo circular and bigger */
+.md-header__button.md-logo img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}

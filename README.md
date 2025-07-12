@@ -1,6 +1,24 @@
-# AIHint Standard
+> **⚠️ Important Notice: Open Source vs. Official Issuer**
+>
+> This open source AiHint project provides the protocol, libraries, and tools for learning, development, testing, and self-signed metadata.
+>
+> **Self-signed AiHint metadata is not globally trusted by default.**
+>
+> For production, public, or commercial use—where global trust and official verification are required—please use the AiHint Official Issuer Service (coming soon), which provides domain validation, billing, and a globally recognized trust authority.
+>
+> **Use this open source project for:**
+> - Experimentation and learning
+> - Local development and testing
+> - Self-hosted or private use
+>
+> **Use the Official Issuer Service for:**
+> - Production and public-facing websites
+> - Globally trusted AiHint metadata
+> - Verified issuer status and support
 
-**AIHint** is an open standard to expose signed, verifiable metadata for websites, intended to be read by AI systems, LLMs, and intelligent agents.
+# AiHint Standard
+
+**AiHint** is an open standard to expose signed, verifiable metadata for websites, intended to be read by AI systems, LLMs, and intelligent agents.
 
 ## Purpose
 
@@ -23,10 +41,10 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
-### Create Your First AIHint
+### Create Your First AiHint
 
 ```bash
-# Create a signed AIHint metadata file
+# Create a signed AiHint metadata file
 aihint create \
   --target "https://example.com" \
   --issuer "https://trust.aihint.org" \
@@ -40,7 +58,7 @@ aihint create \
 ### Validate and Verify
 
 ```bash
-# Validate an AIHint file
+# Validate an AiHint file
 aihint validate aihint.json
 
 # Verify the signature
@@ -84,7 +102,7 @@ print(aihint.verify_hint(signed_hint))    # True
 
 ## File Location
 
-AIHint files should be placed at:
+AiHint files should be placed at:
 ```
 https://example.com/.well-known/aihint.json
 ```
@@ -100,9 +118,9 @@ https://example.com/.well-known/aihint.json
 
 ## Structure
 
-- `specs/` – Specifications of the AIHint format
+- `specs/` – Specifications of the AiHint format
 - `schema/` – JSON Schema for validation
-- `examples/` – Sample valid AIHint files
+- `examples/` – Sample valid AiHint files
 - `aihint/` – Python implementation library
 - `tests/` – Test suite
 - `tools/` – Command-line tools
@@ -126,7 +144,7 @@ pytest --cov=aihint tests/
 ### Running Examples
 
 ```bash
-# Create example AIHint with generated keys
+# Create example AiHint with generated keys
 python examples/create_hint.py
 ```
 
@@ -146,7 +164,7 @@ mypy aihint/
 ## CLI Commands
 
 ### `aihint create`
-Create a new AIHint metadata file.
+Create a new AiHint metadata file.
 
 **Options:**
 - `--target` - Target domain URL (required)
@@ -158,26 +176,26 @@ Create a new AIHint metadata file.
 - `--comment` - Optional comment
 - `--output` - Output file path
 - `--private-key` - Private key file for signing
-- `--version` - AIHint version (default: 0.1)
+- `--version` - AiHint version (default: 0.1)
 
 ### `aihint validate`
-Validate an AIHint metadata file.
+Validate an AiHint metadata file.
 
 ### `aihint verify`
-Verify an AIHint metadata file signature.
+Verify an AiHint metadata file signature.
 
 ### `aihint info`
-Display information about an AIHint metadata file.
+Display information about an AiHint metadata file.
 
 ### `aihint sign`
-Sign an existing AIHint metadata file.
+Sign an existing AiHint metadata file.
 
 ## Security Considerations
 
 - **Private Keys**: Keep your private keys secure and never share them
 - **Key Rotation**: Regularly rotate your signing keys
 - **Expiration**: Set appropriate expiration dates for your hints
-- **HTTPS**: Always serve AIHint files over HTTPS
+- **HTTPS**: Always serve AiHint files over HTTPS
 - **Validation**: Always validate hints before using them
 
 ## Contributing

@@ -9,24 +9,24 @@
         <meta name="description" content="An open standard for signed, verifiable metadata for websites">
       
       
-        <meta name="author" content="AIHint Contributors">
+        <meta name="author" content="AiHint Contributors">
       
       
-        <link rel="canonical" href="https://aihint.github.io/aihint-standard/user-guide/implementation-guide.html">
+        <link rel="canonical" href="https://docs.aihint.org/user-guide/implementation-guide.html">
       
       
-        <link rel="prev" href="../getting-started/installation.html">
+        <link rel="prev" href="../getting-started/key-concepts.html">
       
       
-        <link rel="next" href="cli-reference.html">
+        <link rel="next" href="key-management.html">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/aihint-logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>Implementation Guide - AIHint Standard</title>
+        <title>Implementation Guide - AiHint Standard</title>
       
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -96,10 +98,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="AIHint Standard" class="md-header__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
+    <a href="../index.html" title="AiHint Standard" class="md-header__button md-logo" aria-label="AiHint Standard" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/images/aihint-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -110,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            AIHint Standard
+            AiHint Standard
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -224,13 +225,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="AIHint Standard" class="md-nav__button md-logo" aria-label="AIHint Standard" data-md-component="logo">
+    <a href="../index.html" title="AiHint Standard" class="md-nav__button md-logo" aria-label="AiHint Standard" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/images/aihint-logo.png" alt="logo">
 
     </a>
-    AIHint Standard
+    AiHint Standard
   </label>
   
     <div class="md-nav__source">
@@ -314,6 +314,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../getting-started/choose-implementation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Choose Your Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started/quick-start.html" class="md-nav__link">
         
   
@@ -343,6 +366,29 @@
   
   <span class="md-ellipsis">
     Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/key-concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Concepts
     
   </span>
   
@@ -470,7 +516,7 @@
         <li class="md-nav__item">
   <a href="#2-create-aihint-metadata" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Create AIHint Metadata
+      2. Create AiHint Metadata
     </span>
   </a>
   
@@ -528,12 +574,12 @@
   
   
     <li class="md-nav__item">
-      <a href="cli-reference.html" class="md-nav__link">
+      <a href="key-management.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    CLI Reference
+    Key Management
     
   </span>
   
@@ -551,12 +597,12 @@
   
   
     <li class="md-nav__item">
-      <a href="python-api.html" class="md-nav__link">
+      <a href="example-workflows.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Python API
+    Example Workflows
     
   </span>
   
@@ -597,7 +643,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Reference
+    API Reference
     
   </span>
   
@@ -608,7 +654,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Technical Reference
+            API Reference
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -619,12 +665,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../technical/security-considerations.html" class="md-nav__link">
+      <a href="../api-reference/python-api.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Security Considerations
+    Python API
     
   </span>
   
@@ -642,12 +688,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../technical/signatures.html" class="md-nav__link">
+      <a href="../api-reference/javascript-api.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Signature Algorithm
+    JavaScript API
     
   </span>
   
@@ -665,12 +711,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../technical/faq.html" class="md-nav__link">
+      <a href="../api-reference/php-api.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    FAQ
+    PHP API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/cli-reference.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI Reference
     
   </span>
   
@@ -711,7 +780,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing
+    Issuer Service
     
   </span>
   
@@ -721,6 +790,302 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-service/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-service/become-issuer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Become an Issuer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-service/billing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Billing & Plans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-service/api.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issuer API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/protocol.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protocol & Data Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/signatures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signature Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/security-considerations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Considerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/trust-model.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trust Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Contributing
           </label>
@@ -738,7 +1103,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing Guide
+    How to Contribute
     
   </span>
   
@@ -802,6 +1167,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -842,7 +1229,7 @@
         <li class="md-nav__item">
   <a href="#2-create-aihint-metadata" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Create AIHint Metadata
+      2. Create AiHint Metadata
     </span>
   </a>
   
@@ -903,13 +1290,13 @@
   
 
 
-<h1 id="aihint-implementation-guide">AIHint Implementation Guide<a class="headerlink" href="#aihint-implementation-guide" title="Permanent link">&para;</a></h1>
-<p>This guide walks you through integrating AIHint into your website or service.</p>
+<h1 id="aihint-implementation-guide">AiHint Implementation Guide<a class="headerlink" href="#aihint-implementation-guide" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through integrating AiHint into your website or service.</p>
 <h2 id="1-generate-key-pair">1. Generate Key Pair<a class="headerlink" href="#1-generate-key-pair" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>openssl rsa -pubout -in private_key.pem -out public_key.pem
 </span></code></pre></div>
-<h2 id="2-create-aihint-metadata">2. Create AIHint Metadata<a class="headerlink" href="#2-create-aihint-metadata" title="Permanent link">&para;</a></h2>
+<h2 id="2-create-aihint-metadata">2. Create AiHint Metadata<a class="headerlink" href="#2-create-aihint-metadata" title="Permanent link">&para;</a></h2>
 <p>Use the CLI or Python API:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aihint create \
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --target &quot;https://yourdomain.com&quot; \

@@ -11,7 +11,7 @@
     "method": { "type": "string" },
     "issued_at": { "type": "string", "format": "date-time" },
     "expires_at": { "type": "string", "format": "date-time" },
-    "comment": { "type": "string" },
+    "comment": { "type": ["string", "null"] },
     "signature": { "type": "string" },
     "public_key_url": { "type": "string", "format": "uri" }
   }

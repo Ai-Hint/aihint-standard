@@ -1,76 +1,68 @@
-# AIHint Standard Documentation
+# AiHint Standard
 
-Welcome to the AIHint Standard documentation! AIHint is an open standard for exposing signed, verifiable metadata for websites, intended to be read by AI systems, LLMs, and intelligent agents.
+An open standard for signed, verifiable metadata for websites.
 
-## What is AIHint?
+## What is AiHint?
 
-AIHint allows any AI system to:
-- Discover a well-known, machine-readable JSON file on a website
-- Verify its cryptographic signature
-- Understand the site's declared trust score and metadata
+AiHint Standard provides a way to add signed, verifiable metadata to websites. This metadata can include information about the site's purpose, ownership, security practices, and more. The signatures ensure that the metadata hasn't been tampered with and comes from a trusted source.
 
-## Quick Start
+## Quick Navigation
 
-```bash
-# Install AIHint
-pip install aihint
+<div class="grid" markdown>
 
-# Create your first AIHint
-aihint create \
-  --target "https://example.com" \
-  --issuer "https://trust.aihint.org" \
-  --score 0.92 \
-  --method "aihint-core-v1" \
-  --public-key-url "https://trust.aihint.org/pubkey.pem" \
-  --private-key "private_key.pem" \
-  --output "aihint.json"
-```
+### 🚀 Get Started
+[Choose Your Implementation →](getting-started/choose-implementation.md)
+
+### 📚 Documentation
+- [User Guide](user-guide/implementation-guide.md)
+- [API Reference](api-reference/python-api.md)
+- [Technical Details](technical/protocol.md)
+
+### 🔧 Implementations
+- [Python](api-reference/python-api.md)
+- [JavaScript/Node.js](api-reference/javascript-api.md)
+- [PHP](api-reference/php-api.md)
+
+</div>
+
+## Supported Languages
+
+AiHint Standard is implemented in multiple programming languages to make it easy to integrate into your existing projects:
+
+| Language | Status | Features |
+|----------|--------|----------|
+| **Python** | ✅ Production Ready | Core library, CLI, key generation |
+| **JavaScript/Node.js** | ✅ Production Ready | Core library, CLI, TypeScript support |
+| **PHP** | ✅ Production Ready | Core library, CLI, key generation, remote key fetching |
 
 ## Key Features
 
-- **Cryptographic Signatures**: RSA 2048-bit with SHA-256
-- **Trust Scoring**: 0.0-1.0 scale with customizable methods
-- **Expiration**: Built-in expiration dates for security
-- **Validation**: Comprehensive schema and signature validation
-- **CLI Tools**: Easy-to-use command-line interface
-- **Python API**: Full programmatic access
+- **Multi-language Support**: Choose from Python, JavaScript, or PHP
+- **Self-signing**: Create and sign your own metadata for development/testing
+- **Trusted Issuers**: Use official AiHint Issuer service for production
+- **CLI Tools**: Command-line interfaces for all implementations
+- **Key Management**: Generate and manage cryptographic keys
+- **Validation**: Verify metadata integrity and authenticity
 
-## Documentation Sections
+## Getting Started
 
-- **[Getting Started](getting-started/quick-start.md)** - Quick start guide and installation
-- **[User Guide](user-guide/implementation-guide.md)** - Implementation guide and API reference
-- **[Technical Reference](technical/security-considerations.md)** - Security considerations and technical details
-- **[Contributing](contributing/contributing.md)** - How to contribute to the project
+1. **[Choose your implementation](getting-started/choose-implementation.md)** - Select Python, JavaScript, or PHP
+2. **[Quick Start](getting-started/quick-start.md)** - Get up and running in minutes
+3. **[Key Concepts](getting-started/key-concepts.md)** - Understand the fundamentals
 
-## File Location
+## Open Source vs Production
 
-AIHint files should be placed at:
-```
-https://example.com/.well-known/aihint.json
-```
+<div class="admonition warning" markdown>
+**Important**: This repository contains the **open source protocol** for AiHint Standard, which is designed for development, testing, and self-signing. For production use with global trust, you'll need to use the official **AiHint Issuer service**.
+</div>
 
-## Example AIHint File
-
-```json
-{
-  "version": "0.1",
-  "type": "global",
-  "target": "https://example.com",
-  "issuer": "https://trust.aihint.org",
-  "score": 0.92,
-  "method": "aihint-core-v1",
-  "issued_at": "2025-01-01T12:00:00Z",
-  "expires_at": "2026-01-01T00:00:00Z",
-  "comment": "Example AIHint for demonstration",
-  "signature": "base64-signature-here",
-  "public_key_url": "https://trust.aihint.org/pubkey.pem"
-}
-```
-
-## Security
-
-AIHint is designed with security in mind. See our [Security Considerations](technical/security-considerations.md) for best practices and potential attack vectors.
+- **Open Source** (this repo): Free, self-signing, development/testing
+- **AiHint Issuer Service**: Production-ready, globally trusted, paid service
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](contributing/contributing.md) and [Code of Conduct](contributing/code-of-conduct.md). 
+We welcome contributions! See our [Contributing Guide](contributing/contributing.md) for details.
+
+## License
+
+This project is licensed under the MIT License. 

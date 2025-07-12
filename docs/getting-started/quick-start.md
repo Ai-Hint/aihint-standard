@@ -1,90 +1,155 @@
-# Quick Start Guide
+# Quick Start
 
-Get up and running with AIHint in minutes!
+This guide will help you get started with AiHint Standard in just a few minutes.
 
-## Installation
+## Prerequisites
 
+Before you begin, make sure you have:
+
+1. **Chosen your implementation** - [Select Python, JavaScript, or PHP](choose-implementation.md)
+2. **Basic programming knowledge** in your chosen language
+3. **A website or domain** where you want to add AiHint metadata
+
+## Step 1: Install Your Implementation
+
+### Python
 ```bash
-# Install from source
-git clone https://github.com/Ai-Hint/aihint-standard.git
-cd aihint-standard
-pip install -e .
-
-# Or install dependencies directly
-pip install -r requirements.txt
+pip install aihint
 ```
 
-## Create Your First AIHint
-
-### Step 1: Generate Keys
-
+### JavaScript/Node.js
 ```bash
-# Generate RSA key pair
-openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
-openssl rsa -pubout -in private_key.pem -out public_key.pem
+npm install aihint-js
 ```
 
-### Step 2: Create AIHint
-
+### PHP
 ```bash
-# Create a signed AIHint metadata file
-aihint create \
-  --target "https://example.com" \
-  --issuer "https://trust.aihint.org" \
-  --score 0.92 \
-  --method "aihint-core-v1" \
-  --public-key-url "https://trust.aihint.org/pubkey.pem" \
-  --private-key "private_key.pem" \
-  --output "aihint.json"
+composer require aihint/aihint-php
+php vendor/bin/aihint generate-keys --output-dir ./keys
 ```
 
-### Step 3: Validate and Verify
+## Step 2: Generate Keys (Optional)
 
+For self-signing, you'll need cryptographic keys:
+
+### Python
 ```bash
-# Validate the AIHint file
-aihint validate aihint.json
-
-# Verify the signature
-aihint verify aihint.json
-
-# Get detailed information
-aihint info aihint.json
+aihint generate-keys --output-dir ./keys
 ```
 
-## Python API
+### JavaScript
+```bash
+npx aihint generate-keys --output-dir ./keys
+```
 
+### PHP
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use AiHint\KeyManager;
+
+$keyManager = new KeyManager();
+$keyManager->generateKeys('./keys');
+?>
+```
+
+## Step 3: Create Your First AiHint
+
+### Python
 ```python
-from aihint import AIHint
-from datetime import datetime, timezone, timedelta
+from aihint import AiHint
 
-# Create AIHint instance
-aihint = AIHint()
-
-# Create a new hint
-expires_at = datetime.now(timezone.utc) + timedelta(days=365)
-hint = aihint.create_global_hint(
+# Create AiHint metadata
+aihint = AiHint(
     target="https://example.com",
-    issuer="https://trust.aihint.org",
-    score=0.92,
-    method="aihint-core-v1",
-    public_key_url="https://trust.aihint.org/pubkey.pem",
-    expires_at=expires_at,
-    comment="My website trust metadata"
+    issuer="https://example.com",
+    score=0.85,
+    method="aihint-core-v1"
 )
 
-# Sign the hint
-signed_hint = aihint.sign_hint(hint, "private_key.pem")
+# Sign with your private key
+aihint.sign("keys/private_key.pem")
 
 # Save to file
-aihint.save_hint(signed_hint, "aihint.json")
-
-# Validate and verify
-print(aihint.validate_hint(signed_hint))  # True
-print(aihint.verify_hint(signed_hint))    # True
+aihint.save("aihint.json")
 ```
 
-## Next Steps
+### JavaScript
+```javascript
+const { AiHint } = require('aihint-js');
 
-- Read the [Implementation Guide](../user-guide/implementation-guide.md) for detailed instructions
-- Check out the [Security Considerations](../technical/security-considerations.md) for best practices
-- Explore the [Python API](../user-guide/python-api.md) for advanced usage 
+// Create AiHint metadata
+const aihint = new AiHint({
+    target: "https://example.com",
+    issuer: "https://example.com",
+    score: 0.85,
+    method: "aihint-core-v1"
+});
+
+// Sign with your private key
+aihint.sign("keys/private_key.pem");
+
+// Save to file
+aihint.save("aihint.json");
+```
+
+### PHP
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use AiHint\AiHint;
+
+// Create AiHint metadata
+$aihint = new AiHint([
+    'target' => 'https://example.com',
+    'issuer' => 'https://example.com',
+    'score' => 0.85,
+    'method' => 'aihint-core-v1'
+]);
+
+// Sign with your private key
+$aihint->sign('keys/private_key.pem');
+
+// Save to file
+$aihint->save('aihint.json');
+?>
+```
+
+## Step 4: Deploy to Your Website
+
+Place the generated `aihint.json` file at:
+```
+https://yourdomain.com/.well-known/aihint.json
+```
+
+## Step 5: Verify Your Implementation
+
+### Python
+```bash
+aihint verify https://yourdomain.com/.well-known/aihint.json
+```
+
+### JavaScript
+```bash
+npx aihint verify https://yourdomain.com/.well-known/aihint.json
+```
+
+### PHP
+```bash
+php vendor/bin/aihint verify https://yourdomain.com/.well-known/aihint.json
+```
+
+## What's Next?
+
+- **[Installation Guide](installation.md)** - Detailed setup instructions
+- **[Key Concepts](key-concepts.md)** - Understand the fundamentals
+- **[Implementation Guide](../user-guide/implementation-guide.md)** - Advanced usage examples
+- **[API Reference](../api-reference/python-api.md)** - Complete API documentation
+
+## Need Help?
+
+- Check the [FAQ](../technical/faq.md) for common questions
+- Review the [Implementation Guide](../user-guide/implementation-guide.md) for detailed examples
+- See the [Technical Reference](../technical/protocol.md) for protocol details 

@@ -1,9 +1,9 @@
 # Security Policy
 
-If you discover a security vulnerability in AIHint, please report it responsibly.
+If you discover a security vulnerability in AiHint, please report it responsibly.
 
 - **Email:** contact@aihint.org
-- **GitHub Issues:** [Security advisories](https://github.com/aihint/aihint-standard/security/advisories)
+- **GitHub Issues:** [Security advisories](https://github.com/Ai-Hint/aihint-standard/security/advisories)
 
 ## Supported Versions
 
@@ -17,4 +17,4 @@ If you discover a security vulnerability in AIHint, please report it responsibly
 2. Email us or use GitHub security advisories.
 3. We will coordinate a fix and disclosure.
 
-Thank you for helping keep AIHint safe! 
+Thank you for helping keep AiHint safe! 

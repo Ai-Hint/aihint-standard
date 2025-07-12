@@ -45,7 +45,7 @@ The following packages are required:
 
 ## Verification
 
-After installation, verify that AIHint is working:
+After installation, verify that AiHint is working:
 
 ```bash
 # Check CLI is available

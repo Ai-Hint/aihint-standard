@@ -1,0 +1,13 @@
+{
+    "version": "0.1",
+    "type": "global",
+    "target": "https://example.com",
+    "issuer": "https://trusted-issuer.com",
+    "score": 0.85,
+    "method": "aihint-core-v1",
+    "issued_at": "2025-07-12T12:02:01+00:00",
+    "expires_at": "2026-07-12T12:02:01+00:00",
+    "public_key_url": null,
+    "comment": null,
+    "signature": "hywRnnQ1DYUDWoive7sooKNrmdfPZgnbtsWbITr260MKYO7dYc++Lqaxh9jDo7RqgXd+zYt1QV5sMAHemD4/DKAEEDXH2fqv/G8rmdkDrcWnGN9pBbe4759WQVDTJ/eViwwCOrcUYoNs2BAgxzq4Jbt1JC7MEb44X73VsKWu+giMDhLl5N1l+UJsELukl8I3D+q9+xEHRBsj8xBaCAyzVp6XwebPnB4UNBT6bdDLw5a4DeSQSZwPiFUCmy0M0uHKUSGmhcDq5lg4BMY3lDjus6anfHfa6P+i3nssRsJGTkBNO1E2gZu+UNuvk0uc0VuCtmnvHyeqkP7KpUHn4IVmqA=="
+}

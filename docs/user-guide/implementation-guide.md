@@ -1,6 +1,6 @@
-# AIHint Implementation Guide
+# AiHint Implementation Guide
 
-This guide walks you through integrating AIHint into your website or service.
+This guide walks you through integrating AiHint into your website or service.
 
 ## 1. Generate Key Pair
 
@@ -9,7 +9,7 @@ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:204
 openssl rsa -pubout -in private_key.pem -out public_key.pem
 ```
 
-## 2. Create AIHint Metadata
+## 2. Create AiHint Metadata
 
 Use the CLI or Python API:
 
