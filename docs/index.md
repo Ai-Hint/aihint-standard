@@ -1,188 +1,476 @@
 ---
 title: AiHint Standard - Open Standard for Signed Website Metadata
-description: Create trusted, cryptographically signed metadata for websites with multi-language support (Python, JavaScript, PHP). CLI tools, key management, and comprehensive documentation.
-keywords: 
+description: AiHint Standard provides signed, verifiable metadata for websites. Multi-language support (Python, JavaScript, PHP) with CLI tools and comprehensive documentation.
+keywords:
   - aihint
   - website metadata
-  - signed metadata
-  - cryptographic signatures
+  - digital signatures
   - trust verification
+  - security
+  - open standard
+  - cryptography
+  - website trust
+  - metadata signing
+  - verification protocol
   - python
   - javascript
   - php
-  - cli tools
-  - key management
-  - open standard
-  - security
-  - verification
-  - digital signatures
-  - rsa
-  - sha256
-authors:
-  - name: AiHint Contributors
-    url: https://github.com/Ai-Hint/aihint-standard
+  - cli
+  - api
+og:
+  title: AiHint Standard - Open Standard for Signed Website Metadata
+  description: AiHint Standard provides signed, verifiable metadata for websites. Multi-language support (Python, JavaScript, PHP) with CLI tools and comprehensive documentation.
+  type: website
+  url: https://docs.aihint.org/
+twitter:
+  card: summary_large_image
+  title: AiHint Standard - Open Standard for Signed Website Metadata
+  description: AiHint Standard provides signed, verifiable metadata for websites. Multi-language support (Python, JavaScript, PHP) with CLI tools and comprehensive documentation.
 ---
 
-# AiHint Standard
-
-**Open standard for signed, verifiable website metadata with multi-language support**
-
-<div class="grid" markdown>
-
-### 🚀 Get Started
-[Choose Your Implementation →](getting-started/choose-implementation.md)
-
-### 📚 Documentation
-- [User Guide](user-guide/implementation-guide.md)
-- [API Reference](api-reference/python-api.md)
-- [Technical Details](technical/protocol.md)
-
-### 🔧 Implementations
-- [Python](api-reference/python-api.md)
-- [JavaScript/Node.js](api-reference/javascript-api.md)
-- [PHP](api-reference/php-api.md)
-
+<div class="hero-section">
+  <div class="hero-content">
+    <div class="logo-container">
+      <div class="logo-animation">
+        <div class="logo-circle">
+          <img src="assets/images/aihint-logo.png" alt="AiHint Logo" class="logo-image">
+        </div>
+        <div class="sonar-ring sonar-1"></div>
+        <div class="sonar-ring sonar-2"></div>
+        <div class="sonar-ring sonar-3"></div>
+      </div>
+    </div>
+    
+    <h1 class="hero-title">
+      <span class="title-gradient"><strong>AiHint</strong></span>
+      <span class="title-standard"><strong>Standard</strong></span>
+    </h1>
+    
+    <div class="version-badge">
+      <span class="version-text">v1.0.0</span>
+    </div>
+    
+    <p class="hero-subtitle">
+      An open standard for <span class="highlight">signed</span>, <span class="highlight">verifiable</span> metadata for websites
+    </p>
+    
+    <div class="hero-features">
+      <div class="feature-item">
+        <span class="feature-icon">🔐</span>
+        <span>Cryptographic</br>Signatures</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🌐</span>
+        <span>Multi-Language</br>Support</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⚡</span>
+        <span>CLI Tools</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-## What is AiHint Standard?
+<style>
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin: 0 0 2rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
 
-AiHint Standard is an **open protocol** for creating cryptographically signed, verifiable metadata for websites. This metadata can include information about a site's purpose, ownership, security practices, trust scores, and more. The **RSA-2048 signatures with SHA-256** ensure that the metadata hasn't been tampered with and comes from a trusted source.
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
 
-### Key Benefits
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-- ✅ **Cryptographic Security**: RSA-2048 signatures with SHA-256 hashing
-- ✅ **Multi-Language Support**: Python, JavaScript, PHP implementations
-- ✅ **CLI Tools**: Command-line interfaces for all languages
-- ✅ **Key Management**: Generate and manage cryptographic keys
-- ✅ **Validation**: Verify metadata integrity and authenticity
-- ✅ **Open Standard**: Free to use, open source protocol
+.logo-container {
+  margin-bottom: 1.5rem;
+}
 
-## Supported Languages & Features
+.logo-animation {
+  position: relative;
+  display: inline-block;
+}
 
-| Language | Status | Features | Package |
-|----------|--------|----------|---------|
-| **Python** | ✅ Production Ready | Core library, CLI, key generation, validation | `pip install aihint-standard` |
-| **JavaScript/Node.js** | ✅ Production Ready | Core library, CLI, TypeScript support, validation | `npm install aihint-standard` |
-| **PHP** | ✅ Production Ready | Core library, CLI, key generation, remote fetching | `composer require aihint-standard/aihint` |
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
 
-## Quick Start Examples
+.logo-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-### Python
-```python
-from aihint import create_hint, verify_hint
+.sonar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
 
-# Create and sign metadata
-hint = create_hint(
-    target="https://example.com",
-    issuer="https://trust.aihint.org", 
-    score=0.85,
-    private_key=private_key_pem
-)
+.sonar-1 {
+  width: 100px;
+  height: 100px;
+  animation: sonar 2s ease-out infinite;
+}
 
-# Verify signature
-is_valid = verify_hint(hint, public_key_pem)
-```
+.sonar-2 {
+  width: 120px;
+  height: 120px;
+  animation: sonar 2s ease-out infinite 0.5s;
+}
 
-### JavaScript
-```javascript
-const { createHint, verifyHint } = require('aihint-standard');
+.sonar-3 {
+  width: 140px;
+  height: 140px;
+  animation: sonar 2s ease-out infinite 1s;
+}
 
-// Create and sign metadata
-const hint = createHint({
-    target: 'https://example.com',
-    issuer: 'https://trust.aihint.org',
-    score: 0.85
-}, privateKeyPem);
+@keyframes sonar {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
 
-// Verify signature
-const isValid = verifyHint(hint, publicKeyPem);
-```
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  line-height: 1.2;
+}
 
-### PHP
-```php
-use AiHintStandard\AiHint;
+.title-gradient {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+  font-weight: 900;
+}
 
-// Create and sign metadata
-$hint = AiHint::createAndSign(
-    'https://example.com',
-    'https://trust.aihint.org',
-    0.85,
-    $privateKeyPem
-);
+.title-standard {
+  color: white;
+  font-weight: 900;
+  margin-left: 0.5rem;
+}
 
-// Verify signature
-$isValid = $hint->verify($publicKeyPem);
-```
+@keyframes gradient-shift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+}
 
-## Use Cases
+.version-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  animation: float 3s ease-in-out infinite;
+}
 
-### 🔒 **Security & Trust**
-- Verify website authenticity and ownership
-- Establish trust scores for websites
-- Prevent phishing and spoofing attacks
-- Cryptographic proof of metadata integrity
+.version-text {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
 
-### 🏢 **Enterprise & Compliance**
-- Corporate website verification
-- Compliance documentation
-- Audit trails for website metadata
-- Brand protection and verification
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
 
-### 🌐 **Web Standards**
-- Open standard for website metadata
-- Interoperable across platforms
-- Extensible for future use cases
-- Community-driven development
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.9);
+  margin: 1.5rem 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
 
-### 🛠 **Developer Tools**
-- CLI tools for automation
-- Multi-language SDKs
-- Comprehensive documentation
-- Open source implementation
+.highlight {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  animation: highlight-pulse 2s ease-in-out infinite;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  animation: slide-up 0.6s ease-out;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  max-width: 200px;
+}
+
+.feature-item:nth-child(1) { animation-delay: 0.1s; }
+.feature-item:nth-child(2) { animation-delay: 0.2s; }
+.feature-item:nth-child(3) { animation-delay: 0.3s; }
+
+.feature-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.feature-icon {
+  font-size: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.feature-item span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .feature-item {
+    max-width: 250px;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+  
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logo-image {
+    width: 45px;
+    height: 45px;
+    padding: 6px;
+  }
+  
+  .sonar-1 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .sonar-2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sonar-3 {
+    width: 120px;
+    height: 120px;
+  }
+}
+</style>
+
+<div class="flag-counter-section" style="text-align: center; margin: 2rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+  <a href="https://info.flagcounter.com/sK7L"><img src="https://s01.flagcounter.com/count2/sK7L/bg_FFFFFF/txt_000000/border_CCCCCC/columns_8/maxflags_8/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+</div>
+
+## What is AiHint?
+
+AiHint Standard provides a way to add signed, verifiable metadata to websites. This metadata can include information about the site's purpose, ownership, security practices, and more. The signatures ensure that the metadata hasn't been tampered with and comes from a trusted source.
+
+## Quick Navigation
+
+<div class="quick-nav">
+  <div class="nav-section">
+    <h3>🚀 Get Started</h3>
+    <a href="getting-started/choose-implementation.html">Choose Your Implementation →</a>
+  </div>
+  
+  <div class="nav-section">
+    <h3>📚 Documentation</h3>
+    <a href="user-guide/implementation-guide.html">User Guide</a>
+    <a href="api-reference/python-api.html">API Reference</a>
+    <a href="technical/protocol.html">Technical Details</a>
+  </div>
+  
+  <div class="nav-section">
+    <h3>🔧 Implementations</h3>
+    <a href="api-reference/python-api.html">Python</a>
+    <a href="api-reference/javascript-api.html">JavaScript/Node.js</a>
+    <a href="api-reference/php-api.html">PHP</a>
+  </div>
+</div>
+
+<style>
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.nav-section {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.nav-section h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.nav-section a {
+  display: block;
+  color: #667eea;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.nav-section a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .quick-nav {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+## Supported Languages
+
+AiHint Standard is implemented in multiple programming languages to make it easy to integrate into your existing projects:
+
+| Language | Status | Features |
+|----------|--------|----------|
+| **Python** | ✅ Production Ready | Core library, CLI, key generation |
+| **JavaScript/Node.js** | ✅ Production Ready | Core library, CLI, TypeScript support |
+| **PHP** | ✅ Production Ready | Core library, CLI, key generation, remote key fetching |
+
+## Key Features
+
+- **Multi-language Support**: Choose from Python, JavaScript, or PHP
+- **Self-signing**: Create and sign your own metadata for development/testing
+- **Trusted Issuers**: Use official AiHint Issuer service for production
+- **CLI Tools**: Command-line interfaces for all implementations
+- **Key Management**: Generate and manage cryptographic keys
+- **Validation**: Verify metadata integrity and authenticity
 
 ## Getting Started
 
 1. **[Choose your implementation](getting-started/choose-implementation.md)** - Select Python, JavaScript, or PHP
 2. **[Quick Start](getting-started/quick-start.md)** - Get up and running in minutes
 3. **[Key Concepts](getting-started/key-concepts.md)** - Understand the fundamentals
-4. **[API Reference](api-reference/python-api.md)** - Detailed documentation
 
 ## Open Source vs Production
 
 <div class="admonition warning" markdown>
-**Important**: This repository contains the **open source protocol** for AiHint Standard, which is designed for development, testing, and self-signing. For production use with global trust, you'll need to use the official **AiHint Issuer service**.
+**Important**: This repository contains the **open source protocol** for AiHint Standard, which is designed for development, testing, and self-signing. For production use with global trust, you'll need to use the official **AiHint Issuer service** (coming soon).
 </div>
 
-| Feature | Open Source | AiHint Issuer Service |
-|---------|-------------|----------------------|
-| **Cost** | Free | Paid service |
-| **Trust Level** | Self-signed | Globally trusted |
-| **Use Case** | Development, testing | Production, public |
-| **Validation** | Local verification | Global verification |
-| **Support** | Community | Official support |
+- **Open Source** (this repo): Free, self-signing, development/testing
+- **AiHint Issuer Service**: Production-ready, globally trusted, paid service (separate project)
 
-## Technical Specifications
+## Contributing
 
-- **Signature Algorithm**: RSA-2048 with SHA-256
-- **Key Format**: PEM-encoded PKCS#8 private keys
-- **Data Format**: JSON with snake_case keys
-- **Version**: 0.1 (current protocol version)
-- **Encoding**: UTF-8 JSON with Base64 signatures
-
-## Community & Support
-
-- 📖 **[Documentation](getting-started/quick-start.md)** - Comprehensive guides
-- 🐛 **[Issues](https://github.com/Ai-Hint/aihint-standard/issues)** - Report bugs
-- 💬 **[Discussions](https://github.com/Ai-Hint/aihint-standard/discussions)** - Ask questions
-- 🤝 **[Contributing](contributing/contributing.md)** - Help improve the project
-- 📄 **[Code of Conduct](contributing/code-of-conduct.md)** - Community guidelines
+We welcome contributions! See our [Contributing Guide](contributing/contributing.md) for details.
 
 ## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](https://github.com/Ai-Hint/aihint-standard/blob/main/LICENSE) file for details.
-
----
-
-<div class="admonition info" markdown>
-**Ready to get started?** Check out our [implementation guide](user-guide/implementation-guide.md) or jump straight to [quick start](getting-started/quick-start.md).
-</div> 
+This project is licensed under the MIT License. 

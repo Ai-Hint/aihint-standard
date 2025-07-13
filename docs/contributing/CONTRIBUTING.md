@@ -1,6 +1,6 @@
-# Contributing to AIHint
+# Contributing to AiHint
 
-Thank you for your interest in contributing to AIHint! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to AiHint! This document provides guidelines and information for contributors.
 
 ## Code of Conduct
 
@@ -83,4 +83,4 @@ This project adheres to our [Code of Conduct](code-of-conduct.md). By participat
 
 If you have questions about contributing, please open an issue or reach out to the maintainers.
 
-Thank you for contributing to AIHint! 
+Thank you for contributing to AiHint! 

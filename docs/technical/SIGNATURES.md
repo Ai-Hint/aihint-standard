@@ -1,4 +1,4 @@
-# AIHint Signature Algorithm
+# AiHint Signature Algorithm
 
 ## Algorithm
 - **Type:** RSA

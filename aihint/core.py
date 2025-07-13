@@ -281,19 +281,28 @@ class AIHint:
     
     def validate_hint(self, hint: AIHintGlobal) -> bool:
         """Validate an AIHint object."""
-        return self.validator.validate(hint.model_dump())
+        return self.validator.validate(self._serialize_hint(hint))
     
     def verify_hint(self, hint: AIHintGlobal) -> bool:
         """Verify an AIHint object's signature."""
-        return self.verifier.verify(hint.model_dump())
+        return self.verifier.verify(self._serialize_hint(hint))
     
     def save_hint(self, hint: AIHintGlobal, file_path: str) -> None:
         """Save AIHint object to JSON file."""
         with open(file_path, 'w') as f:
-            json.dump(hint.model_dump(), f, indent=2, default=str)
+            json.dump(self._serialize_hint(hint), f, indent=2)
     
     def load_hint(self, file_path: str) -> AIHintGlobal:
         """Load AIHint object from JSON file."""
         with open(file_path, 'r') as f:
             data = json.load(f)
         return AIHintGlobal(**data) 
+    
+    def _serialize_hint(self, hint: AIHintGlobal) -> Dict[str, Any]:
+        """Serialize hint with proper datetime handling."""
+        data = hint.model_dump()
+        # Convert datetime objects to ISO format strings
+        for key, value in data.items():
+            if isinstance(value, datetime):
+                data[key] = value.isoformat()
+        return data 

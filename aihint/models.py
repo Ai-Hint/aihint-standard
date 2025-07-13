@@ -14,7 +14,21 @@ class AIHintGlobal(BaseModel):
     """AIHint Global metadata model."""
     
     model_config = ConfigDict(
-        json_encoders={datetime: lambda v: v.isoformat()}
+        json_schema_extra={
+            "example": {
+                "version": "0.1",
+                "type": "global",
+                "target": "https://example.com",
+                "issuer": "https://trust.aihint.org",
+                "score": 0.92,
+                "method": "aihint-core-v1",
+                "issued_at": "2024-01-01T00:00:00Z",
+                "expires_at": "2025-01-01T00:00:00Z",
+                "comment": "Example AiHint",
+                "signature": "base64_signature_here",
+                "public_key_url": "https://trust.aihint.org/pubkey.pem"
+            }
+        }
     )
     
     version: str = Field(..., description="AIHint version")
@@ -55,7 +69,19 @@ class AIHintData(BaseModel):
     """Base AIHint data model."""
     
     model_config = ConfigDict(
-        json_encoders={datetime: lambda v: v.isoformat()}
+        json_schema_extra={
+            "example": {
+                "version": "0.1",
+                "type": "global",
+                "target": "https://example.com",
+                "issuer": "https://trust.aihint.org",
+                "issued_at": "2024-01-01T00:00:00Z",
+                "expires_at": "2025-01-01T00:00:00Z",
+                "signature": "base64_signature_here",
+                "public_key_url": "https://trust.aihint.org/pubkey.pem",
+                "comment": "Example AiHint"
+            }
+        }
     )
     
     version: str
@@ -66,4 +92,11 @@ class AIHintData(BaseModel):
     expires_at: datetime
     signature: str
     public_key_url: str
-    comment: Optional[str] = None 
+    comment: Optional[str] = None
+    
+    @field_validator('issued_at', 'expires_at', mode='before')
+    @classmethod
+    def parse_datetime(cls, v):
+        if isinstance(v, str):
+            return datetime.fromisoformat(v.replace('Z', '+00:00'))
+        return v 

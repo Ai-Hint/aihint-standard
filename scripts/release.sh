@@ -61,15 +61,6 @@ update_version "php-aihint/composer.json" '"version": "[^"]*"' '"version": "'$VE
 echo "📚 Updating documentation..."
 update_version "mkdocs.yml" "site_name: AiHint Standard [^']*" "site_name: AiHint Standard v$VERSION"
 
-# Update CHANGELOG.md
-echo "📝 Updating changelog..."
-if [[ "$DRY_RUN" == "false" ]]; then
-    # Add new version section to changelog
-    sed -i.bak "s/## \[Unreleased\]/## \[Unreleased\]\n\n## \[$VERSION\] - $(date +%Y-%m-%d)/" CHANGELOG.md
-    rm -f CHANGELOG.md.bak
-    echo "✅ Updated CHANGELOG.md"
-fi
-
 # Run tests
 echo "🧪 Running tests..."
 if [[ "$DRY_RUN" == "false" ]]; then

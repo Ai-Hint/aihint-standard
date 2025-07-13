@@ -1,191 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://standard.aihint.org/</loc>
+    <loc>https://docs.aihint.org/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Getting Started -->
   <url>
-    <loc>https://standard.aihint.org/getting-started/choose-implementation/</loc>
+    <loc>https://docs.aihint.org/getting-started/choose-implementation/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/getting-started/quick-start/</loc>
+    <loc>https://docs.aihint.org/getting-started/quick-start/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/getting-started/installation/</loc>
+    <loc>https://docs.aihint.org/getting-started/installation/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/getting-started/key-concepts/</loc>
+    <loc>https://docs.aihint.org/getting-started/key-concepts/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- User Guide -->
   <url>
-    <loc>https://standard.aihint.org/user-guide/implementation-guide/</loc>
+    <loc>https://docs.aihint.org/user-guide/implementation-guide/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/user-guide/key-management/</loc>
+    <loc>https://docs.aihint.org/user-guide/key-management/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/user-guide/example-workflows/</loc>
+    <loc>https://docs.aihint.org/user-guide/example-workflows/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- API Reference -->
   <url>
-    <loc>https://standard.aihint.org/api-reference/python-api/</loc>
+    <loc>https://docs.aihint.org/api-reference/python-api/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/api-reference/javascript-api/</loc>
+    <loc>https://docs.aihint.org/api-reference/javascript-api/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/api-reference/php-api/</loc>
+    <loc>https://docs.aihint.org/api-reference/php-api/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/api-reference/cli-reference/</loc>
+    <loc>https://docs.aihint.org/api-reference/cli-reference/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Issuer Service -->
   <url>
-    <loc>https://standard.aihint.org/issuer-service/overview/</loc>
+    <loc>https://docs.aihint.org/technical/protocol/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/issuer-service/become-issuer/</loc>
+    <loc>https://docs.aihint.org/technical/signatures/</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.aihint.org/technical/security-considerations/</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.aihint.org/technical/trust-model/</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.aihint.org/technical/faq/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/issuer-service/billing/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://standard.aihint.org/issuer-service/api/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Technical Reference -->
-  <url>
-    <loc>https://standard.aihint.org/technical/protocol/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://standard.aihint.org/technical/signatures/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://standard.aihint.org/technical/security-considerations/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://standard.aihint.org/technical/trust-model/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- FAQ -->
-  <url>
-    <loc>https://standard.aihint.org/technical/faq/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Contributing -->
-  <url>
-    <loc>https://standard.aihint.org/contributing/contributing/</loc>
+    <loc>https://docs.aihint.org/contributing/contributing/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/contributing/code-of-conduct/</loc>
+    <loc>https://docs.aihint.org/contributing/code-of-conduct/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://standard.aihint.org/contributing/security/</loc>
+    <loc>https://docs.aihint.org/contributing/security/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
-  <!-- Changelog -->
   <url>
-    <loc>https://standard.aihint.org/changelog/</loc>
+    <loc>https://docs.aihint.org/CHANGELOG/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-
 </urlset> 

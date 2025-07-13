@@ -29,7 +29,6 @@
   - [ ] JavaScript: `package.json`
   - [ ] PHP: `composer.json`
 - [ ] Update documentation version references
-- [ ] Update CHANGELOG.md with new version
 
 ### [ ] Documentation Updates
 - [ ] Update README.md with latest features
