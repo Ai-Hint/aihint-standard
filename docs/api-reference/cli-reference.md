@@ -59,6 +59,47 @@ aihint validate aihint.json
 aihint info aihint.json
 ```
 
+#### Create with Automated Scoring
+```bash
+aihint create-with-score \
+  --target "https://example.com" \
+  --issuer "https://trust.aihint.org" \
+  --public-key-url "https://trust.aihint.org/pubkey.pem" \
+  --private-key "keys/private_key.pem" \
+  --verbose \
+  --output "scored_aihint.json"
+```
+
+**Options**:
+- `--target`: Target URL to score and create AiHint for
+- `--issuer`: Issuer URL
+- `--public-key-url`: Public key URL for verification
+- `--expires-in`: Expiration in days (default: 365)
+- `--comment`: Optional comment
+- `--output`: Output file path
+- `--private-key`: Private key file for signing
+- `--version`: AIHint version (default: 0.1)
+- `--config`: Scoring configuration file path
+- `--verbose`: Verbose output with detailed scoring breakdown
+
+#### Trust Scoring Commands
+```bash
+# Score a single website
+aihint scoring score https://example.com
+
+# Score multiple websites
+aihint scoring batch --urls https://example.com,https://github.com
+
+# Generate sample configuration
+aihint scoring config --output scoring_config.json
+```
+
+**Scoring Options**:
+- `--format`: Output format (text, table, json)
+- `--config`: Configuration file path
+- `--verbose`: Detailed output
+- `--timeout`: Request timeout in seconds
+
 ---
 
 ## JavaScript CLI
@@ -196,7 +237,7 @@ php vendor/bin/aihint info aihint.json
 # Generate keys
 aihint generate-keys --output-dir ./keys
 
-# Create and sign AiHint
+# Create and sign AiHint (manual scoring)
 aihint create \
   --target "https://mywebsite.com" \
   --issuer "https://mywebsite.com" \
@@ -204,8 +245,38 @@ aihint create \
   --private-key "keys/private_key.pem" \
   --output "aihint.json"
 
+# OR create with automated scoring
+aihint create-with-score \
+  --target "https://mywebsite.com" \
+  --issuer "https://trust.aihint.org" \
+  --public-key-url "https://trust.aihint.org/pubkey.pem" \
+  --private-key "keys/private_key.pem" \
+  --verbose \
+  --output "scored_aihint.json"
+
 # Verify the result
 aihint verify aihint.json
+```
+
+### Automated Scoring Workflows
+```bash
+# Score a single website
+aihint scoring score https://example.com --verbose
+
+# Score multiple websites with batch processing
+aihint scoring batch --urls https://example.com,https://github.com,https://stackoverflow.com
+
+# Generate scoring configuration
+aihint scoring config --output my_scoring_config.json
+
+# Create AiHint with custom scoring configuration
+aihint create-with-score \
+  --target "https://example.com" \
+  --issuer "https://trust.aihint.org" \
+  --public-key-url "https://trust.aihint.org/pubkey.pem" \
+  --config my_scoring_config.json \
+  --verbose \
+  --output "custom_scored_aihint.json"
 ```
 
 ### Batch Processing
@@ -213,6 +284,15 @@ aihint verify aihint.json
 # Validate all AiHint files in a directory
 for file in *.json; do
   aihint validate "$file"
+done
+
+# Score multiple websites and create AiHints
+for url in https://example.com https://github.com https://stackoverflow.com; do
+  aihint create-with-score \
+    --target "$url" \
+    --issuer "https://trust.aihint.org" \
+    --public-key-url "https://trust.aihint.org/pubkey.pem" \
+    --output "$(basename $url)_aihint.json"
 done
 ```
 

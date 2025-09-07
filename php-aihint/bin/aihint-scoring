@@ -1,0 +1,306 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../src/scoring/index.php';
+
+use AIHint\Scoring\TrustScoringEngine;
+use AIHint\Scoring\ScoringResult;
+
+class AiHintScoringCLI
+{
+    private array $config = [];
+    private bool $verbose = false;
+
+    public function __construct()
+    {
+        $this->loadConfig();
+    }
+
+    public function run(array $argv): void
+    {
+        if (count($argv) < 2) {
+            $this->showHelp();
+            exit(1);
+        }
+
+        $command = $argv[1];
+        $args = array_slice($argv, 2);
+
+        switch ($command) {
+            case 'score':
+                $this->scoreCommand($args);
+                break;
+            case 'batch':
+                $this->batchCommand($args);
+                break;
+            case 'config':
+                $this->configCommand($args);
+                break;
+            case 'help':
+            case '--help':
+            case '-h':
+                $this->showHelp();
+                break;
+            default:
+                echo "Unknown command: $command\n";
+                $this->showHelp();
+                exit(1);
+        }
+    }
+
+    private function scoreCommand(array $args): void
+    {
+        if (empty($args)) {
+            echo "Error: URL required for score command\n";
+            exit(1);
+        }
+
+        $url = $args[0];
+        $outputFile = null;
+        $configFile = null;
+
+        // Parse arguments
+        for ($i = 1; $i < count($args); $i++) {
+            if ($args[$i] === '--output' && isset($args[$i + 1])) {
+                $outputFile = $args[$i + 1];
+                $i++;
+            } elseif ($args[$i] === '--config' && isset($args[$i + 1])) {
+                $configFile = $args[$i + 1];
+                $i++;
+            } elseif ($args[$i] === '--verbose' || $args[$i] === '-v') {
+                $this->verbose = true;
+            }
+        }
+
+        // Load custom config if provided
+        if ($configFile) {
+            $this->loadConfigFromFile($configFile);
+        }
+
+        try {
+            $engine = new TrustScoringEngine($this->config);
+            $result = $engine->scoreWebsite($url);
+
+            if ($outputFile) {
+                file_put_contents($outputFile, $result->toJson());
+                echo "Results saved to: $outputFile\n";
+            } else {
+                $this->displayResult($result);
+            }
+
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage() . "\n";
+            exit(1);
+        }
+    }
+
+    private function batchCommand(array $args): void
+    {
+        $urls = [];
+        $outputFile = null;
+        $configFile = null;
+
+        // Parse arguments
+        for ($i = 0; $i < count($args); $i++) {
+            if ($args[$i] === '--urls' && isset($args[$i + 1])) {
+                $urls = explode(',', $args[$i + 1]);
+                $i++;
+            } elseif ($args[$i] === '--output' && isset($args[$i + 1])) {
+                $outputFile = $args[$i + 1];
+                $i++;
+            } elseif ($args[$i] === '--config' && isset($args[$i + 1])) {
+                $configFile = $args[$i + 1];
+                $i++;
+            } elseif ($args[$i] === '--verbose' || $args[$i] === '-v') {
+                $this->verbose = true;
+            } elseif (!str_starts_with($args[$i], '--')) {
+                $urls[] = $args[$i];
+            }
+        }
+
+        if (empty($urls)) {
+            echo "Error: URLs required for batch command\n";
+            exit(1);
+        }
+
+        // Load custom config if provided
+        if ($configFile) {
+            $this->loadConfigFromFile($configFile);
+        }
+
+        try {
+            $engine = new TrustScoringEngine($this->config);
+            $results = [];
+
+            foreach ($urls as $url) {
+                $url = trim($url);
+                if (empty($url)) continue;
+
+                echo "Scoring: $url\n";
+                $result = $engine->scoreWebsite($url);
+                $results[] = $result->toArray();
+
+                if ($this->verbose) {
+                    $this->displayResult($result);
+                    echo "\n" . str_repeat('-', 50) . "\n\n";
+                }
+            }
+
+            if ($outputFile) {
+                file_put_contents($outputFile, json_encode($results, JSON_PRETTY_PRINT));
+                echo "Results saved to: $outputFile\n";
+            } else {
+                echo json_encode($results, JSON_PRETTY_PRINT) . "\n";
+            }
+
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage() . "\n";
+            exit(1);
+        }
+    }
+
+    private function configCommand(array $args): void
+    {
+        $outputFile = 'aihint-scoring-config.json';
+
+        // Parse arguments
+        for ($i = 0; $i < count($args); $i++) {
+            if ($args[$i] === '--output' && isset($args[$i + 1])) {
+                $outputFile = $args[$i + 1];
+                $i++;
+            }
+        }
+
+        $config = [
+            'ssl' => [
+                'timeout' => 10
+            ],
+            'headers' => [
+                'timeout' => 10
+            ],
+            'malware' => [
+                'timeout' => 10,
+                'google_safe_browsing' => [
+                    'enabled' => false,
+                    'api_key' => 'YOUR_API_KEY_HERE'
+                ],
+                'virustotal' => [
+                    'enabled' => false,
+                    'api_key' => 'YOUR_API_KEY_HERE'
+                ],
+                'phishtank' => [
+                    'enabled' => false
+                ]
+            ],
+            'reputation' => [
+                'timeout' => 10
+            ],
+            'domain_age' => [
+                'timeout' => 10
+            ],
+            'incidents' => [
+                'timeout' => 10
+            ],
+            'privacy' => [
+                'timeout' => 10
+            ],
+            'contact' => [
+                'timeout' => 10
+            ],
+            'compliance' => [
+                'timeout' => 10
+            ],
+            'weights' => [
+                'security' => 0.4,
+                'reputation' => 0.35,
+                'compliance' => 0.25
+            ]
+        ];
+
+        file_put_contents($outputFile, json_encode($config, JSON_PRETTY_PRINT));
+        echo "Sample configuration saved to: $outputFile\n";
+    }
+
+    private function displayResult(ScoringResult $result): void
+    {
+        echo "URL: " . $result->url . "\n";
+        echo "Trust Score: " . number_format($result->finalScore, 3) . "\n";
+        echo "Trust Level: " . $result->trustLevel->name . " (" . $result->trustLevel->getDescription() . ")\n";
+        echo "Confidence: " . number_format($result->confidence, 3) . "\n";
+        echo "Security Score: " . number_format($result->securityScore, 3) . "\n";
+        echo "Reputation Score: " . number_format($result->reputationScore, 3) . "\n";
+        echo "Compliance Score: " . number_format($result->complianceScore, 3) . "\n";
+
+        if (!empty($result->warnings)) {
+            echo "\nWarnings:\n";
+            foreach ($result->warnings as $warning) {
+                echo "  - $warning\n";
+            }
+        }
+
+        if (!empty($result->errors)) {
+            echo "\nErrors:\n";
+            foreach ($result->errors as $error) {
+                echo "  - $error\n";
+            }
+        }
+
+        if ($this->verbose) {
+            echo "\nDetailed Metrics:\n";
+            echo json_encode($result->detailedMetrics, JSON_PRETTY_PRINT) . "\n";
+        }
+    }
+
+    private function loadConfig(): void
+    {
+        $configFiles = [
+            getcwd() . '/aihint-scoring-config.json',
+            getcwd() . '/.aihint-scoring-config.json',
+            $_SERVER['HOME'] . '/.aihint-scoring-config.json'
+        ];
+
+        foreach ($configFiles as $configFile) {
+            if (file_exists($configFile)) {
+                $this->loadConfigFromFile($configFile);
+                break;
+            }
+        }
+    }
+
+    private function loadConfigFromFile(string $configFile): void
+    {
+        if (!file_exists($configFile)) {
+            throw new Exception("Config file not found: $configFile");
+        }
+
+        $config = json_decode(file_get_contents($configFile), true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new Exception("Invalid JSON in config file: " . json_last_error_msg());
+        }
+
+        $this->config = $config;
+    }
+
+    private function showHelp(): void
+    {
+        echo "AiHint Trust Scoring System - PHP Implementation\n";
+        echo "Usage: aihint-scoring <command> [options]\n\n";
+        echo "Commands:\n";
+        echo "  score <url>              Score a single website\n";
+        echo "  batch <urls>             Score multiple websites\n";
+        echo "  config                   Generate sample configuration\n";
+        echo "  help                     Show this help message\n\n";
+        echo "Options:\n";
+        echo "  --output <file>          Save results to file\n";
+        echo "  --config <file>          Use custom configuration file\n";
+        echo "  --verbose, -v            Show detailed output\n\n";
+        echo "Examples:\n";
+        echo "  aihint-scoring score https://example.com\n";
+        echo "  aihint-scoring score https://example.com --verbose --output results.json\n";
+        echo "  aihint-scoring batch --urls https://example.com,https://github.com\n";
+        echo "  aihint-scoring config --output my-config.json\n";
+    }
+}
+
+// Run the CLI
+$cli = new AiHintScoringCLI();
+$cli->run($argv);

@@ -47,11 +47,11 @@ twitter:
     </h1>
     
     <div class="version-badge">
-      <span class="version-text">v1.0.0</span>
+      <span class="version-text">v1.1.0</span>
     </div>
     
     <p class="hero-subtitle">
-      An open standard for <span class="highlight">signed</span>, <span class="highlight">verifiable</span> metadata for websites
+      An open standard for <span class="highlight">signed</span>, <span class="highlight">verifiable</span> metadata and <span class="highlight">trust scoring</span> for websites
     </p>
     
     <div class="hero-features">
@@ -66,6 +66,10 @@ twitter:
       <div class="feature-item">
         <span class="feature-icon">⚡</span>
         <span>CLI Tools</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🤖</span>
+        <span>AI Trust</br>Scoring</span>
       </div>
     </div>
   </div>
@@ -277,6 +281,7 @@ twitter:
 .feature-item:nth-child(1) { animation-delay: 0.1s; }
 .feature-item:nth-child(2) { animation-delay: 0.2s; }
 .feature-item:nth-child(3) { animation-delay: 0.3s; }
+.feature-item:nth-child(4) { animation-delay: 0.4s; }
 
 .feature-item:hover {
   transform: translateY(-2px);
@@ -367,7 +372,14 @@ twitter:
 
 ## What is AiHint?
 
-AiHint Standard provides a way to add signed, verifiable metadata to websites. This metadata can include information about the site's purpose, ownership, security practices, and more. The signatures ensure that the metadata hasn't been tampered with and comes from a trusted source.
+AiHint Standard provides a comprehensive solution for website trust and metadata verification. It includes:
+
+- **Signed, Verifiable Metadata**: Add tamper-proof metadata to websites with cryptographic signatures
+- **Automated Trust Scoring**: Multi-phase trust assessment covering security, reputation, and compliance
+- **Cross-Platform Support**: Full implementations in Python, PHP, and JavaScript
+- **Real-time Analysis**: Automated website analysis with external API integration
+
+The metadata can include information about the site's purpose, ownership, security practices, trust scores, and more. The signatures ensure that the metadata hasn't been tampered with and comes from a trusted source.
 
 ## Quick Navigation
 
@@ -380,6 +392,7 @@ AiHint Standard provides a way to add signed, verifiable metadata to websites. T
   <div class="nav-section">
     <h3>📚 Documentation</h3>
     <a href="user-guide/implementation-guide.html">User Guide</a>
+    <a href="user-guide/trust-scoring.html">Trust Scoring</a>
     <a href="api-reference/python-api.html">API Reference</a>
     <a href="technical/protocol.html">Technical Details</a>
   </div>
@@ -431,6 +444,44 @@ AiHint Standard provides a way to add signed, verifiable metadata to websites. T
     grid-template-columns: 1fr;
   }
 }
+
+.trust-scoring-highlight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.scoring-dimension {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.scoring-dimension:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.scoring-dimension h4 {
+  margin: 0 0 0.5rem 0;
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.scoring-dimension p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 </style>
 
 ## Supported Languages
@@ -446,11 +497,46 @@ AiHint Standard is implemented in multiple programming languages to make it easy
 ## Key Features
 
 - **Multi-language Support**: Choose from Python, JavaScript, or PHP
+- **AI Trust Scoring**: Automated website trust assessment with 9 scoring modules
 - **Self-signing**: Create and sign your own metadata for development/testing
 - **Trusted Issuers**: Use official AiHint Issuer service for production
 - **CLI Tools**: Command-line interfaces for all implementations
 - **Key Management**: Generate and manage cryptographic keys
 - **Validation**: Verify metadata integrity and authenticity
+
+## 🆕 Trust Scoring System
+
+The new AI-powered trust scoring system automatically assesses website trustworthiness across three dimensions:
+
+<div class="trust-scoring-highlight">
+  <div class="scoring-dimension">
+    <h4>🔒 Security</h4>
+    <p>SSL/TLS validation, security headers, malware detection</p>
+  </div>
+  <div class="scoring-dimension">
+    <h4>⭐ Reputation</h4>
+    <p>Domain age, historical incidents, third-party reputation</p>
+  </div>
+  <div class="scoring-dimension">
+    <h4>📋 Compliance</h4>
+    <p>Privacy policies, contact information, legal compliance</p>
+  </div>
+</div>
+
+**Quick Example:**
+```bash
+# Score a website automatically
+aihint scoring score https://example.com --verbose
+
+# Create AiHint with automated scoring
+aihint create-with-score \
+  --target "https://example.com" \
+  --issuer "https://trust.aihint.org" \
+  --public-key-url "https://trust.aihint.org/pubkey.pem" \
+  --output "scored_aihint.json"
+```
+
+[Learn more about Trust Scoring →](user-guide/trust-scoring.md)
 
 ## Getting Started
 

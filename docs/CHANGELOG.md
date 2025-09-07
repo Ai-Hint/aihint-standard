@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Trust Scoring System**: Comprehensive automated trust assessment for websites
+  - 3-phase scoring methodology (Security, Reputation, Compliance)
+  - 9 individual scoring modules with configurable weights
+  - Real-time website analysis with external API integration
+  - Asynchronous processing for improved performance
+  - Confidence scoring and trust level classification
+- **Integrated CLI Commands**: New `create-with-score` command for automated AiHint generation
+  - Automatic trust scoring with `aihint-scoring-v1` method identifier
+  - Verbose output with detailed scoring breakdown
+  - Configuration file support for custom scoring parameters
+  - Seamless integration with existing signing and validation pipeline
+- **Scoring Modules**:
+  - SSL/TLS validation and cipher strength analysis
+  - Security headers analysis (HSTS, CSP, X-Frame-Options, etc.)
+  - Malware and phishing database checks (Google Safe Browsing, VirusTotal, PhishTank)
+  - Domain reputation analysis with WHOIS integration
+  - Domain age analysis and historical incident tracking
+  - Privacy policy detection and compliance analysis
+  - Contact information validation and legal compliance indicators
+- **Enhanced Documentation**: Comprehensive scoring system documentation
+  - Detailed API reference for all scoring modules
+  - Configuration examples and best practices
+  - Integration guides for automated workflows
+  - Trust level interpretation framework
+
+### Changed
+- **CLI Interface**: Enhanced with new scoring command group
+  - Added `scoring` command group with `score`, `batch`, and `config` subcommands
+  - Improved error handling and user feedback for scoring operations
+  - Support for multiple output formats (text, table, JSON)
+- **Dependencies**: Added new packages for scoring functionality
+  - `aiohttp>=3.8.0` for asynchronous HTTP requests
+  - `dnspython>=2.3.0` for DNS resolution and analysis
+  - `python-whois>=0.8.0` for domain information lookup
+
+### Technical Details
+- **Scoring Engine**: Modular architecture with pluggable scoring modules
+- **Trust Levels**: 5-tier classification system (Highly Trusted to Very Low Trust)
+- **Score Range**: 0.0-1.0 with confidence metrics and detailed breakdowns
+- **Performance**: Asynchronous processing with configurable timeouts
+- **Extensibility**: Easy addition of new scoring modules and metrics
+
+---
+
 ## [1.0.0] - 2025-07-13
 
 ### Added
@@ -45,53 +90,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved error handling to prevent information leakage
 - Secure key storage practices across all implementations
 
-## [0.1.0] - 2024-01-XX
-
-### Added
-- Initial Python implementation with core functionality
-- Basic CLI functionality and interface
-- Core signing and verification algorithms
-- JSON schema validation and error handling
-- Basic documentation structure and examples
-
-### Security
-- RSA-2048 key generation and management
-- SHA-256 signature algorithm implementation
-- Secure key storage practices and validation
-
-## Implementation History
-
-### Python Implementation
-- **v0.1.0**: Initial release with core functionality and basic CLI
-- **v0.2.0**: Added enhanced CLI interface and improved error handling
-- **v1.0.0**: Production-ready with comprehensive testing and Pydantic v2 compatibility
-
-### JavaScript Implementation
-- **v0.1.0**: Initial release with Node.js support and basic functionality
-- **v0.2.0**: Added TypeScript definitions and improved validation
-- **v1.0.0**: Production-ready with cross-language compatibility and enhanced CLI
-
-### PHP Implementation
-- **v0.1.0**: Initial release with basic functionality and key management
-- **v0.2.0**: Added CLI interface and remote key fetching capabilities
-- **v1.0.0**: Production-ready with full feature parity and modern OpenSSL usage
-
-## Breaking Changes
-
-### v1.0.0
+### Breaking Changes
 - Updated package names to follow standard conventions (`aihint-standard`)
 - Restructured API for better consistency across all language implementations
 - Enhanced validation requirements with stricter schema enforcement
 - Modernized Pydantic models with v2 compatibility
 
-### v0.2.0
-- Improved error handling with more descriptive and actionable messages
-- Updated cryptographic implementations for enhanced security standards
-- Enhanced CLI interfaces with better user experience
-
-## Migration Guide
-
-### From v0.2.0 to v1.0.0
+### Migration Guide (from v0.2.0 to v1.0.0)
 
 #### Python
 ```python
@@ -123,12 +128,47 @@ use AiHintStandard\AiHint;
 // Modern OpenSSL usage and enhanced CLI tools
 ```
 
-## Deprecation Notices
-
-### v1.0.0
+### Deprecation Notices
 - Deprecated old package names in favor of standardized naming conventions
 - Deprecated legacy API methods in favor of new consistent interface
 - Removed deprecated Pydantic v1 features in favor of v2 compatibility
+
+---
+
+## [0.1.0] - 2024-01-XX
+
+### Added
+- Initial Python implementation with core functionality
+- Basic CLI functionality and interface
+- Core signing and verification algorithms
+- JSON schema validation and error handling
+- Basic documentation structure and examples
+
+### Security
+- RSA-2048 key generation and management
+- SHA-256 signature algorithm implementation
+- Secure key storage practices and validation
+
+---
+
+# Reference
+
+## Implementation History
+
+### Python Implementation
+- **v0.1.0**: Initial release with core functionality and basic CLI
+- **v0.2.0**: Added enhanced CLI interface and improved error handling
+- **v1.0.0**: Production-ready with comprehensive testing and Pydantic v2 compatibility
+
+### JavaScript Implementation
+- **v0.1.0**: Initial release with Node.js support and basic functionality
+- **v0.2.0**: Added TypeScript definitions and improved validation
+- **v1.0.0**: Production-ready with cross-language compatibility and enhanced CLI
+
+### PHP Implementation
+- **v0.1.0**: Initial release with basic functionality and key management
+- **v0.2.0**: Added CLI interface and remote key fetching capabilities
+- **v1.0.0**: Production-ready with full feature parity and modern OpenSSL usage
 
 ## Security Advisories
 

@@ -12,7 +12,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="aihint",
-    version="0.1.0",
+    version="1.1.0",
     author="AIHint Contributors",
     author_email="contributors@aihint.org",
     description="AIHint Standard Implementation - Create, validate, and verify AIHint metadata",

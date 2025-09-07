@@ -1,6 +1,6 @@
 {
   "name": "aihint-standard",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "> **⚠️ Important Notice: Open Source vs. Official Issuer** > > This open source AiHint project provides the protocol, libraries, and tools for learning, development, testing, and self-signed metadata. > > **Self-signed AiHint metadata is not globally trusted by default.** > > For production, public, or commercial use—where global trust and official verification are required—please use the AiHint Official Issuer Service (coming soon), which provides domain validation, billing, and a globally recognized trust authority. > > **Use this open source project for:** > - Experimentation and learning > - Local development and testing > - Self-hosted or private use > > **Use the Official Issuer Service for:** > - Production and public-facing websites > - Globally trusted AiHint metadata > - Verified issuer status and support",
   "main": "index.js",
   "directories": {
@@ -9,7 +9,13 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build:scoring": "tsc js-aihint/src/scoring/*.ts --outDir js-aihint/dist/scoring --target es2020 --module commonjs --moduleResolution node --esModuleInterop --allowSyntheticDefaultImports",
+    "scoring": "node js-aihint/dist/scoring/cli.js"
+  },
+  "bin": {
+    "aihint-scoring": "./js-aihint/dist/scoring/cli.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 # Python API Reference
 
-The Python implementation of AiHint Standard provides a comprehensive library for creating, signing, and verifying AiHint metadata.
+The Python implementation of AiHint Standard provides a comprehensive library for creating, signing, and verifying AiHint metadata, including **automated trust scoring** capabilities.
 
 **Other implementations**: [JavaScript](javascript-api.md) | [PHP](php-api.md)
 
@@ -25,6 +25,37 @@ aihint = AiHint(
 
 aihint.sign("private_key.pem")
 aihint.save("aihint.json")
+```
+
+## Trust Scoring
+
+The Python implementation includes a comprehensive trust scoring system:
+
+```python
+from aihint.scoring import TrustScoringEngine
+
+# Initialize the scoring engine
+engine = TrustScoringEngine()
+
+# Score a website
+result = await engine.score_website("https://example.com")
+
+print(f"Trust Score: {result.final_score:.3f}")
+print(f"Trust Level: {result.trust_level.name}")
+print(f"Confidence: {result.confidence:.3f}")
+```
+
+### CLI Usage
+
+```bash
+# Score a single website
+aihint scoring score https://example.com
+
+# Score multiple websites
+aihint scoring batch https://example.com https://github.com
+
+# Create AiHint with automated scoring
+aihint create-with-score --target https://example.com --issuer https://trust.aihint.org
 ```
 
 ## Core Classes

@@ -1,6 +1,6 @@
 # PHP API Reference
 
-The PHP implementation of AiHint Standard provides a comprehensive library with CLI support, key generation, and remote key fetching for creating, signing, and verifying AiHint metadata in PHP applications.
+The PHP implementation of AiHint Standard provides a comprehensive library with CLI support, key generation, and remote key fetching for creating, signing, and verifying AiHint metadata in PHP applications, including **automated trust scoring** capabilities.
 
 **Other implementations**: [Python](python-api.md) | [JavaScript](javascript-api.md)
 
@@ -29,6 +29,41 @@ $aihint = new AiHint([
 $aihint->sign('private_key.pem');
 $aihint->save('aihint.json');
 ?>
+```
+
+## Trust Scoring
+
+The PHP implementation includes a production-ready trust scoring system:
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use AiHint\Scoring\TrustScoringEngine;
+
+// Initialize the scoring engine
+$engine = new TrustScoringEngine();
+
+// Score a website
+$result = $engine->scoreWebsite("https://example.com");
+
+echo "Trust Score: " . number_format($result->getFinalScore(), 3) . "\n";
+echo "Trust Level: " . $result->getTrustLevel()->getDescription() . "\n";
+echo "Confidence: " . number_format($result->getConfidence(), 3) . "\n";
+?>
+```
+
+### CLI Usage
+
+```bash
+# Score a single website
+php bin/aihint-scoring score https://example.com
+
+# Score multiple websites
+php bin/aihint-scoring batch https://example.com https://github.com
+
+# Score with verbose output
+php bin/aihint-scoring score https://example.com --verbose
 ```
 
 ## Core Classes

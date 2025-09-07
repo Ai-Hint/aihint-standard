@@ -1,5 +1,5 @@
 site_name: AiHint Standard
-site_description: An open standard for signed, verifiable metadata for websites
+site_description: An open standard for signed, verifiable metadata and trust scoring for websites
 site_author: AiHint Contributors
 site_url: https://docs.aihint.org/
 
@@ -7,7 +7,7 @@ repo_name: Ai-Hint/aihint-standard
 repo_url: https://github.com/Ai-Hint/aihint-standard
 edit_uri: edit/main/docs/
 
-use_directory_urls: false
+use_directory_urls: true
 
 extra_javascript:
   - extra.js
@@ -34,10 +34,6 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/`|]+'
   - mkdocstrings:
       default_handler: python
-      handlers:
-        python:
-          rendering:
-            show_source: true
 
 nav:
   - Home: index.md
@@ -48,6 +44,7 @@ nav:
       - Key Concepts: getting-started/key-concepts.md
   - User Guide:
       - Implementation Guide: user-guide/implementation-guide.md
+      - Trust Scoring System: user-guide/trust-scoring.md
       - Key Management: user-guide/key-management.md
       - Example Workflows: user-guide/example-workflows.md
   - API Reference:

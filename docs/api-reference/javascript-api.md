@@ -1,6 +1,6 @@
 # JavaScript API Reference
 
-The JavaScript/Node.js implementation of AiHint Standard provides a comprehensive library with TypeScript support for creating, signing, and verifying AiHint metadata.
+The JavaScript/Node.js implementation of AiHint Standard provides a comprehensive library with TypeScript support for creating, signing, and verifying AiHint metadata, including **automated trust scoring** capabilities.
 
 **Other implementations**: [Python](python-api.md) | [PHP](php-api.md)
 
@@ -25,6 +25,37 @@ const aihint = new AiHint({
 
 aihint.sign("private_key.pem");
 aihint.save("aihint.json");
+```
+
+## Trust Scoring
+
+The JavaScript implementation includes a modern trust scoring system:
+
+```javascript
+const { TrustScoringEngine } = require('aihint-js/scoring');
+
+// Initialize the scoring engine
+const engine = new TrustScoringEngine();
+
+// Score a website
+const result = await engine.scoreWebsite("https://example.com");
+
+console.log(`Trust Score: ${result.finalScore.toFixed(3)}`);
+console.log(`Trust Level: ${result.trustLevel}`);
+console.log(`Confidence: ${result.confidence.toFixed(3)}`);
+```
+
+### CLI Usage
+
+```bash
+# Score a single website
+npx aihint-scoring score https://example.com
+
+# Score multiple websites
+npx aihint-scoring batch https://example.com https://github.com
+
+# Build scoring system
+npm run build:scoring
 ```
 
 ## Core Classes

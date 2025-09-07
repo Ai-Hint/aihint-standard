@@ -69,15 +69,13 @@ This project adheres to our [Code of Conduct](code-of-conduct.md). By participat
 ## Pull Request Process
 
 1. Update the README.md with details of changes if applicable
-2. Update the CHANGELOG.md with a note describing your changes
-3. The PR will be merged once you have the sign-off of at least one maintainer
+2. The PR will be merged once you have the sign-off of at least one maintainer
 
 ## Release Process
 
 1. Update version in `setup.py` and `aihint/__init__.py`
-2. Update CHANGELOG.md
-3. Create a release tag
-4. Publish to PyPI (if applicable)
+2. Create a release tag
+3. Publish to PyPI (if applicable)
 
 ## Questions?
 

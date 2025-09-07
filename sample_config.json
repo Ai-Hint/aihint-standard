@@ -1,0 +1,40 @@
+{
+  "ssl": {
+    "timeout": 10
+  },
+  "headers": {
+    "timeout": 10
+  },
+  "malware": {
+    "timeout": 10,
+    "google_safe_browsing": {
+      "enabled": false,
+      "api_key": "YOUR_API_KEY_HERE"
+    },
+    "virustotal": {
+      "enabled": false,
+      "api_key": "YOUR_API_KEY_HERE"
+    },
+    "phishtank": {
+      "enabled": false
+    }
+  },
+  "reputation": {
+    "timeout": 10
+  },
+  "domain_age": {
+    "timeout": 10
+  },
+  "incidents": {
+    "timeout": 10
+  },
+  "privacy": {
+    "timeout": 10
+  },
+  "contact": {
+    "timeout": 10
+  },
+  "compliance": {
+    "timeout": 10
+  }
+}
