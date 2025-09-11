@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://docs.aihint.org/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/changelog/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/changelog/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/api-reference/cli-reference/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/api-reference/cli-reference/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/api-reference/javascript-api/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/api-reference/javascript-api/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/api-reference/php-api/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/api-reference/php-api/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/api-reference/python-api/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/api-reference/python-api/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/contributing/code-of-conduct/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/contributing/code-of-conduct/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/contributing/contributing/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/contributing/contributing/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/contributing/security/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/contributing/security/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/getting-started/choose-implementation/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/getting-started/choose-implementation/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/getting-started/installation/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/getting-started/installation/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/getting-started/key-concepts/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/getting-started/key-concepts/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/getting-started/quick-start/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/getting-started/quick-start/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/technical/faq/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/technical/faq/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/technical/protocol/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/technical/protocol/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/technical/security-considerations/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/technical/security-considerations/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/technical/signatures/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/technical/signatures/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/technical/trust-model/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/technical/trust-model/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/user-guide/example-workflows/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/user-guide/example-workflows/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/user-guide/implementation-guide/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/user-guide/implementation-guide/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/user-guide/key-management/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/user-guide/key-management/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://docs.aihint.org/user-guide/trust-scoring/</loc>
-         <lastmod>2025-09-07</lastmod>
+         <loc>https://standard.aihint.org/user-guide/trust-scoring/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
 </urlset>

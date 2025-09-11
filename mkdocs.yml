@@ -1,7 +1,7 @@
 site_name: AiHint Standard
 site_description: An open standard for signed, verifiable metadata and trust scoring for websites
 site_author: AiHint Contributors
-site_url: https://docs.aihint.org/
+site_url: https://standard.aihint.org/
 
 repo_name: Ai-Hint/aihint-standard
 repo_url: https://github.com/Ai-Hint/aihint-standard
